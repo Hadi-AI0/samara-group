@@ -296,9 +296,9 @@ function initCompanyShowcase() {
   
   const companyData = {
     samara: {
-      title: 'Samara Refrigeration',
+      title: 'Samara H-VACR',
       category: 'Commercial Cooling',
-      desc: 'Leading provider of commercial and industrial refrigeration solutions, serving supermarkets, cold storage, and food processing facilities across the Kingdom since 1984.'
+      desc: 'Leading provider of commercial and industrial refrigeration and HVAC solutions, serving supermarkets, cold storage, and food processing facilities across the Kingdom since 1984.'
     },
     realestate: {
       title: 'Real Estate & Contracting',
@@ -306,7 +306,7 @@ function initCompanyShowcase() {
       desc: 'Developing premium residential and commercial properties while delivering high-quality general contracting services for major infrastructure projects across Saudi Arabia.'
     },
     sararyah: {
-      title: 'Sararyah Healthcare',
+      title: 'Saryryah Healthcare',
       category: 'Medical Services',
       desc: 'Operating and managing hospitals and medical centers, providing world-class healthcare services with a focus on patient care and medical excellence throughout the GCC region.'
     },
@@ -316,9 +316,19 @@ function initCompanyShowcase() {
       desc: 'Delivering advanced parking management systems and smart city solutions to optimize urban mobility and traffic flow in major cities, aligned with Vision 2030.'
     },
     builmix: {
-      title: 'Builmix LLC',
+      title: 'Saudi Builmix LLC',
       category: 'Industrial Growth',
       desc: 'Specialty chemical additives and general construction services delivering quality-driven outcomes for industrial and civil projects across the Kingdom.'
+    },
+    mahara: {
+      title: 'Mahara Recruitment',
+      category: 'Human Resources',
+      desc: 'Professional recruitment and HR services connecting top talent with leading organizations across Saudi Arabia and the GCC region.'
+    },
+    salmiya: {
+      title: 'Salmiya Oasis',
+      category: 'Hospitality',
+      desc: 'Premium hospitality services offering luxurious accommodations and exceptional guest experiences in the heart of Saudi Arabia.'
     }
   };
   
@@ -759,6 +769,26 @@ function animateCounters() {
             const current = Math.round(parseFloat(counter.innerText));
             counter.innerText = current >= 1000 ? current.toLocaleString() : current;
           }
+        });
+      }
+    });
+  });
+
+  // Animate progress bars
+  const progressBars = document.querySelectorAll('.progress-bar-inner');
+  progressBars.forEach(bar => {
+    const width = bar.getAttribute('data-width');
+    if (!width) return;
+
+    ScrollTrigger.create({
+      trigger: bar,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(bar, {
+          width: width + '%',
+          duration: 1.5,
+          ease: 'power2.out'
         });
       }
     });

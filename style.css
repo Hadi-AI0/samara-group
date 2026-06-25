@@ -11,7 +11,7 @@
   --gray: #888888;
   --light-gray: #e5e5e5;
   --white: #ffffff;
-  --font-main: 'Manrope', sans-serif;
+  --font-main: 'Circular Std Book', 'Manrope', sans-serif;
   --font-display: 'Orbitron', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1250,7 +1250,7 @@ section {
 }
 
 .board-content-desc {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 32px;
@@ -2083,6 +2083,12 @@ section {
     position: relative;
     top: 0;
   }
+  .about-image-desktop {
+    display: block;
+  }
+  .about-image-mobile-only {
+    display: none;
+  }
   .about-text-segment {
     min-height: 40vh;
   }
@@ -2186,10 +2192,13 @@ section {
   .wheel-selector-container {
     margin-bottom: 20px;
   }
-  .about-image-wrapper-mobile {
+  .about-image-desktop {
     display: none;
   }
-  .about-text-segment:nth-child(3) .about-image-wrapper {
+  .about-image-mobile-only {
+    display: block;
+  }
+  .about-text-segment:nth-child(3) .about-image-mobile-only {
     order: -1;
     margin-bottom: 20px;
   }

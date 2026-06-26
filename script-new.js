@@ -7,6 +7,9 @@
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize preloader
+  initPreloader();
+  
   // Initialize all components
   initNavigation();
   initMobileMenu();
@@ -16,6 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initLucideIcons();
 });
+
+/**
+ * Initialize Preloader
+ */
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    // Hide preloader after page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 500);
+    });
+  }
+}
 
 /**
  * Initialize Lucide Icons
@@ -503,3 +521,46 @@ function initProgressBars() {
 
 // Initialize progress bars
 initProgressBars();
+
+// ============================================
+// WHEEL ANIMATION & STICKY SCROLL
+// ============================================
+function animateOverview() {
+  // Wheel auto-flip functionality
+  const wheelInputs = document.querySelectorAll('.radio-input input[type="radio"]');
+  let currentWheelIndex = 0;
+  
+  function flipWheel() {
+    if (wheelInputs.length === 0) return;
+    currentWheelIndex = (currentWheelIndex + 1) % wheelInputs.length;
+    wheelInputs[currentWheelIndex].checked = true;
+  }
+  
+  // Auto-flip every 3 seconds
+  setInterval(flipWheel, 3000);
+  
+  // Sticky scroll animation for text segments
+  const segments = document.querySelectorAll('.about-text-segment');
+  
+  function updateActiveSegment() {
+    if (segments.length === 0) return;
+    
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    segments.forEach((segment, index) => {
+      const segmentTop = segment.offsetTop;
+      const segmentBottom = segmentTop + segment.offsetHeight;
+      
+      if (scrollPosition >= segmentTop && scrollPosition < segmentBottom) {
+        segments.forEach(s => s.classList.remove('active'));
+        segment.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveSegment);
+  updateActiveSegment(); // Initial check
+}
+
+// Initialize wheel animation
+animateOverview();

@@ -564,3 +564,99 @@ function animateOverview() {
 
 // Initialize wheel animation
 animateOverview();
+
+/* =========================================
+   MISSING FUNCTIONALITY
+   (Preloader, Wheel Animation, Progress Bars)
+   ========================================= */
+
+// Preloader Initialization
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 1000); // Optional delay to show animation
+    });
+  }
+}
+
+// Wheel Animation & Sticky Scroll
+function animateOverview() {
+  // Wheel auto-flip functionality
+  const wheelInputs = document.querySelectorAll('.radio-input input[type="radio"]');
+  let currentWheelIndex = 0;
+  
+  function flipWheel() {
+    if (wheelInputs.length === 0) return;
+    currentWheelIndex = (currentWheelIndex + 1) % wheelInputs.length;
+    wheelInputs[currentWheelIndex].checked = true;
+  }
+  
+  setInterval(flipWheel, 3000); // Auto-flip every 3 seconds
+  
+  // Sticky scroll animation for text segments
+  const segments = document.querySelectorAll('.about-text-segment');
+  
+  function updateActiveSegment() {
+    if (segments.length === 0) return;
+    
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    segments.forEach((segment) => {
+      const segmentTop = segment.offsetTop;
+      const segmentBottom = segmentTop + segment.offsetHeight;
+      
+      if (scrollPosition >= segmentTop && scrollPosition < segmentBottom) {
+        segments.forEach(s => s.classList.remove('active'));
+        segment.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveSegment);
+  updateActiveSegment(); // Initial check
+}
+
+// Progress Bars Animation
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-fill');
+  
+  if (progressBars.length === 0) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const targetWidth = bar.getAttribute('data-width') || bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.transition = 'width 1.5s ease-out';
+          bar.style.width = targetWidth;
+        }, 100);
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  progressBars.forEach(bar => observer.observe(bar));
+}
+
+// Initialize everything when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    animateOverview();
+    animateProgressBars();
+    lucide.createIcons();
+  });
+} else {
+  initPreloader();
+  animateOverview();
+  animateProgressBars();
+  lucide.createIcons();
+}

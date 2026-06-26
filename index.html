@@ -762,5 +762,13 @@
   </footer>
 
   <script src="script-new.js"></script>
+<script>
+      // Initialize Lucide icons after the page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+          lucide.createIcons();
+        }
+      });
+    </script>
 </body>
 </html>

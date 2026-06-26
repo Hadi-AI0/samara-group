@@ -1644,7 +1644,7 @@ a:focus-visible {
 .showcase-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  border-color: var(--primary);
+  border-color: var(--color-gold);
 }
 
 .showcase-image {
@@ -1669,7 +1669,7 @@ a:focus-visible {
 }
 
 .showcase-content h3 {
-  color: var(--white);
+  color: var(--color-white);
   font-size: 1.3rem;
   margin-bottom: 12px;
   font-family: var(--font-display);

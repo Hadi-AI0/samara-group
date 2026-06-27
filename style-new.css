@@ -1594,12 +1594,11 @@ p {
 }
 
 .timeline-milestone:nth-child(even) {
-  margin-left: 0 !important;
-  padding-left: var(--space-6);
-  padding-right: 0 !important;
-  left: auto !important;
-  right: 0 !important;
-  text-align: left !important;
+  margin-left: 50%;
+  padding-left: var(--space-10);
+  padding-right: var(--space-6);
+  left: 0;
+  text-align: left;
 }
 
 .timeline-content-wrapper {
@@ -1648,11 +1647,11 @@ p {
 }
 
 .timeline-milestone:nth-child(odd) .timeline-text {
-  text-align: left;
+  text-align: right;
 }
 
 .timeline-milestone:nth-child(even) .timeline-text {
-  text-align: right;
+  text-align: left;
 }
 
 .timeline-year {
@@ -2120,7 +2119,7 @@ a:focus-visible {
 }
 
 .hero-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-primary), sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
@@ -2707,12 +2706,22 @@ a:focus-visible {
   max-width: 320px !important;
 }
 
+/* ============================================
+   WHEEL SELECTOR
+   ============================================ */
+.wheel-selector {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
 .radio-input {
   position: relative;
   height: 280px;
-  width: 320px !important;
-  max-width: 320px !important;
-  width: 320px;
+  width: 100%;
+  max-width: none;
   background: var(--color-navy);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 30px;
@@ -3470,11 +3479,11 @@ a:focus-visible {
 }
 
 /* Muted text in sections */
-.dark-section .text-muted, .dark-section .subtitle, .dark-section .label {
+.dark-section .text-muted, .dark-section .subtitle {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.light-section .text-muted, .light-section .subtitle, .light-section .label {
+.light-section .text-muted, .light-section .subtitle {
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -3670,12 +3679,12 @@ a:focus-visible {
 }
 
 /* Muted text in sections */
-.dark-section .text-muted, .dark-section .subtitle, .dark-section .label,
+.dark-section .text-muted, .dark-section .subtitle,
 .dark-section .board-label, .dark-section .milestone-year {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.light-section .text-muted, .light-section .subtitle, .light-section .label,
+.light-section .text-muted, .light-section .subtitle,
 .light-section .board-label, .light-section .milestone-year {
   color: rgba(0, 0, 0, 0.6) !important;
 }
@@ -4274,132 +4283,134 @@ a:focus-visible {
    COMPANY SHOWCASE - MISSING CLASSES
    ============================================ */
 .about-company-showcase {
-  margin-top: var(--space-16);
-  padding-top: var(--space-16);
-  border-top: 2px solid rgba(201, 168, 76, 0.3);
-  background: rgba(15, 32, 64, 0.6);
-  padding: 3rem;
-  border-radius: 12px;
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 2px solid rgba(29, 79, 145, 0.1);
+}
+
+.about-company-showcase .company-buttons {
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+.about-company-showcase .company-btn {
+  border-color: rgba(29, 79, 145, 0.3);
+  color: rgba(29, 79, 145, 0.6);
+}
+
+.about-company-showcase .company-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.about-company-showcase .company-btn.active {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
   color: var(--color-white);
-  text-align: center;
-  backdrop-filter: blur(10px);
+}
+
+.about-company-showcase .company-info-box {
+  background: var(--color-white);
+  border: 1px solid rgba(29, 79, 145, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.about-company-showcase .company-info-title {
+  color: var(--color-navy);
+}
+
+.about-company-showcase .company-info-desc {
+  color: #555;
+}
+
+.about-heading {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
 }
 
 .company-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: flex-start;
 }
 
 .company-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 0.85rem;
+  padding: 8px 16px;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid var(--color-gold);
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255,255,255,0.15);
   background: transparent;
-  color: var(--color-gold);
+  color: rgba(255,255,255,0.5);
   cursor: pointer;
-  border-radius: 30px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .company-btn:hover {
-  border-color: var(--color-gold);
-  background: var(--color-gold);
-  color: var(--color-navy);
-  transform: translateY(-2px);
+  border-color: rgba(201,168,76,0.5);
+  color: rgba(255,255,255,0.8);
 }
 
 .company-btn.active {
   background: var(--color-gold);
   border-color: var(--color-gold);
-  color: var(--color-navy);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4);
+  color: #0a1628;
 }
 
 .company-info-box {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 2.5rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--color-gold);
-  text-align: left;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .company-info-header {
-  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 16px;
 }
 
 .company-info-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 900;
   color: var(--color-white);
-  margin: 0 0 0.5rem 0;
-  font-weight: 700;
-}
-
-.company-info-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.company-info-category {
-  display: inline-block;
-  background: rgba(201, 168, 76, 0.15);
-  color: var(--color-gold);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  align-self: flex-start;
-}
-
-.company-info-desc {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05rem;
-  line-height: 1.7;
   margin: 0;
 }
 
+.company-info-meta {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.company-info-category {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.company-info-desc {
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .company-info-divider {
+  margin-top: 24px;
   height: 1px;
-  background: linear-gradient(90deg, var(--color-gold), transparent);
-  margin-top: 1.5rem;
-  opacity: 0.5;
-}
-
-/* Light section variant */
-.section-light .company-btn {
-  border-color: rgba(15, 32, 64, 0.3);
-  color: rgba(15, 32, 64, 0.6);
-}
-
-.section-light .company-btn:hover {
-  border-color: var(--color-gold);
-  color: var(--color-navy);
-}
-
-.section-light .company-info-box {
-  background: var(--color-white);
-  border: 1px solid rgba(15, 32, 64, 0.1);
-}
-
-.section-light .company-info-title {
-  color: var(--color-navy);
-}
-
-.section-light .company-info-desc {
-  color: var(--color-charcoal);
+  background: linear-gradient(to right, var(--color-gold), transparent);
 }

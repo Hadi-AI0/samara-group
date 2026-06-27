@@ -1575,7 +1575,7 @@ p {
 }
 
 .timeline-milestone:nth-child(even) {
-  margin-left: 50%;
+  margin-left: 0;
   padding-left: var(--space-6);
   padding-right: 0;
 }
@@ -3423,15 +3423,15 @@ a:focus-visible {
   color: var(--color-white) !important;
 }
 
-/* Force text colors in sections */
-.dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4, .dark-section h5, .dark-section h6,
-.dark-section p, .dark-section span, .dark-section a, .dark-section li {
-  color: var(--color-white) !important;
+/* Force text colors in sections - REMOVED BRUTE FORCE OVERRIDES */
+/* Text colors now handled by CSS variable inheritance through --color-text-local */
+
+.light-section {
+  color: var(--color-charcoal) !important;
 }
 
-.light-section h1, .light-section h2, .light-section h3, .light-section h4, .light-section h5, .light-section h6,
-.light-section p, .light-section span, .light-section a, .light-section li {
-  color: var(--color-charcoal) !important;
+.dark-section {
+  color: var(--color-white) !important;
 }
 
 /* Card Contrast Fix - Force inheritance */
@@ -3837,7 +3837,6 @@ a:focus-visible {
 }
 
 .timeline-milestone:nth-child(even) {
-  left: 50%;
   text-align: left;
 }
 
@@ -4139,15 +4138,16 @@ a:focus-visible {
 }
 
 .board-content {
-  background: #0f2040;
+  background: var(--color-navy);
   padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: var(--color-white);
 }
 
 .board-content-subtitle {
-  color: rgba(0,0,0,0.3);
+  color: rgba(255,255,255,0.4);
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -4155,7 +4155,7 @@ a:focus-visible {
 }
 
 .board-content-role {
-  color: var(--accent);
+  color: var(--color-gold);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -4166,7 +4166,7 @@ a:focus-visible {
   font-family: var(--font-serif);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--color-white);
   margin-bottom: 24px;
   line-height: 1.1;
 }

@@ -431,7 +431,7 @@ function initParallax() {
 }
 
 /**
- * Timeline Section - Progress line and node animation
+ * Timeline Section - Progress line and node animation with responsive handling
  */
 function initTimeline() {
   const timelineContainer = document.getElementById('timeline-container');
@@ -440,47 +440,72 @@ function initTimeline() {
 
   if (!timelineContainer || !timelineNode || !timelineProgress) return;
 
-  // Animate the progress line - extends through entire timeline
-  gsap.to(timelineProgress, {
-    scrollTrigger: {
-      trigger: timelineContainer,
-      start: 'top 80%',
-      end: 'bottom 20%',
-      scrub: 2,
-    },
-    height: '100%',
-    ease: 'none',
-  });
-  
-  // Node follows scroll progress through entire timeline
-  ScrollTrigger.create({
-    trigger: timelineContainer,
-    start: 'top 80%',
-    end: 'bottom 20%',
-    scrub: 2,
-    onUpdate: (self) => {
-      const progress = self.progress;
-      gsap.set(timelineNode, {
-        top: progress * 100 + '%',
-      });
-    }
-  });
+  // Get ScrollTriggers for cleanup on resize
+  let timelineST, nodeST, milestoneSTs = [];
 
-  // Animate individual milestones
-  const milestones = document.querySelectorAll('.timeline-milestone');
-  milestones.forEach((milestone) => {
-    ScrollTrigger.create({
-      trigger: milestone,
-      start: 'top 75%',
-      end: 'top 40%',
-      scrub: 1,
+  function setupTimelineAnimations() {
+    // Kill existing ScrollTriggers
+    if (timelineST) timelineST.kill();
+    if (nodeST) nodeST.kill();
+    milestoneSTs.forEach(st => st.kill());
+    milestoneSTs = [];
+
+    const isMobile = window.innerWidth < 768;
+    const startTrigger = isMobile ? 'top 85%' : 'top 80%';
+    const endTrigger = isMobile ? 'bottom 10%' : 'bottom 20%';
+
+    // Animate the progress line - extends through entire timeline
+    timelineST = gsap.to(timelineProgress, {
+      scrollTrigger: {
+        trigger: timelineContainer,
+        start: startTrigger,
+        end: endTrigger,
+        scrub: isMobile ? 1 : 2,
+      },
+      height: '100%',
+      ease: 'none',
+    });
+    
+    // Node follows scroll progress through entire timeline
+    nodeST = ScrollTrigger.create({
+      trigger: timelineContainer,
+      start: startTrigger,
+      end: endTrigger,
+      scrub: isMobile ? 1 : 2,
       onUpdate: (self) => {
-        gsap.set(milestone, {
-          opacity: Math.min(1, self.progress * 2),
-          scale: 0.9 + (self.progress * 0.1)
+        const progress = self.progress;
+        gsap.set(timelineNode, {
+          top: progress * 100 + '%',
         });
       }
     });
+
+    // Animate individual milestones
+    const milestones = document.querySelectorAll('.timeline-milestone');
+    milestones.forEach((milestone) => {
+      const milestoneST = ScrollTrigger.create({
+        trigger: milestone,
+        start: isMobile ? 'top 80%' : 'top 75%',
+        end: isMobile ? 'top 50%' : 'top 40%',
+        scrub: 1,
+        onUpdate: (self) => {
+          gsap.set(milestone, {
+            opacity: Math.min(1, self.progress * 2),
+            scale: 0.9 + (self.progress * 0.1)
+          });
+        }
+      });
+      milestoneSTs.push(milestoneST);
+    });
+  }
+
+  setupTimelineAnimations();
+
+  // Re-setup on resize for responsive behavior
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setupTimelineAnimations, 250);
   });
 }
 
@@ -488,9 +513,6 @@ function initTimeline() {
 if (window.innerWidth >= 1024) {
   initParallax();
 }
-
-// Initialize timeline
-initTimeline();
 
 // Re-initialize parallax on resize
 let resizeTimer;
@@ -573,61 +595,8 @@ function animateOverview() {
 animateOverview();
 
 /* =========================================
-   MISSING FUNCTIONALITY
-   (Preloader, Wheel Animation, Progress Bars)
+   CLEANUP DUPLICATE FUNCTIONS
    ========================================= */
-
-// Preloader Initialization
-function initPreloader() {
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('hidden');
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 500);
-      }, 1000); // Optional delay to show animation
-    });
-  }
-}
-
-// Wheel Animation & Sticky Scroll
-function animateOverview() {
-  // Wheel auto-flip functionality
-  const wheelInputs = document.querySelectorAll('.radio-input input[type="radio"]');
-  let currentWheelIndex = 0;
-  
-  function flipWheel() {
-    if (wheelInputs.length === 0) return;
-    currentWheelIndex = (currentWheelIndex + 1) % wheelInputs.length;
-    wheelInputs[currentWheelIndex].checked = true;
-  }
-  
-  setInterval(flipWheel, 3000); // Auto-flip every 3 seconds
-  
-  // Sticky scroll animation for text segments
-  const segments = document.querySelectorAll('.about-text-segment');
-  
-  function updateActiveSegment() {
-    if (segments.length === 0) return;
-    
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
-    
-    segments.forEach((segment) => {
-      const segmentTop = segment.offsetTop;
-      const segmentBottom = segmentTop + segment.offsetHeight;
-      
-      if (scrollPosition >= segmentTop && scrollPosition < segmentBottom) {
-        segments.forEach(s => s.classList.remove('active'));
-        segment.classList.add('active');
-      }
-    });
-  }
-  
-  window.addEventListener('scroll', updateActiveSegment);
-  updateActiveSegment(); // Initial check
-}
 
 // Progress Bars Animation
 function animateProgressBars() {
@@ -776,6 +745,95 @@ function initBoardCarousel() {
       updateBoardContent(newIndex);
     }
   });
+}
+
+/**
+ * Company Showcase - Interactive company info box
+ */
+function initCompanyShowcase() {
+  const companyBtns = document.querySelectorAll('.company-btn');
+  const infoTitle = document.querySelector('[data-info-title]');
+  const infoCategory = document.querySelector('[data-info-category]');
+  const infoDesc = document.querySelector('[data-info-desc]');
+
+  if (companyBtns.length === 0 || !infoTitle || !infoCategory || !infoDesc) return;
+
+  // Company data
+  const companyData = {
+    samara: {
+      title: 'Samara H-VACR',
+      category: 'HVAC & Refrigeration',
+      desc: 'Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.'
+    },
+    realestate: {
+      title: 'Samara Real Estate',
+      category: 'Real Estate Development',
+      desc: 'Premium real estate development company creating exceptional residential and commercial properties with modern design and sustainable building practices.'
+    },
+    sararyah: {
+      title: 'Saryryah Healthcare',
+      category: 'Healthcare Services',
+      desc: 'Comprehensive healthcare services providing quality medical care with state-of-the-art facilities and experienced healthcare professionals.'
+    },
+    parking: {
+      title: 'Samara Parking',
+      category: 'Parking Solutions',
+      desc: 'Smart parking management solutions offering efficient space utilization and seamless parking experiences for urban developments.'
+    },
+    builmix: {
+      title: 'Builmix LLC',
+      category: 'Industrial Growth',
+      desc: 'Specialty chemical additives and general construction services delivering quality-driven outcomes for industrial and civil projects across the Kingdom.'
+    },
+    mahara: {
+      title: 'Mahara Recruitment',
+      category: 'Human Resources',
+      desc: 'Professional recruitment and HR services connecting talented individuals with leading organizations across various industries.'
+    },
+    salmiya: {
+      title: 'Salmiya Oasis',
+      category: 'Hospitality & Tourism',
+      desc: 'Luxury hospitality destination offering premium accommodations and exceptional guest experiences in a serene oasis setting.'
+    }
+  };
+
+  // Button click handlers
+  companyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      companyBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      // Get company key from data attribute
+      const companyKey = btn.getAttribute('data-company');
+      const data = companyData[companyKey];
+
+      if (data) {
+        // Animate content change
+        gsap.to([infoTitle, infoCategory, infoDesc], {
+          opacity: 0,
+          y: 10,
+          duration: 0.2,
+          onComplete: () => {
+            infoTitle.textContent = data.title;
+            infoCategory.textContent = data.category;
+            infoDesc.textContent = data.desc;
+            gsap.to([infoTitle, infoCategory, infoDesc], {
+              opacity: 1,
+              y: 0,
+              duration: 0.3
+            });
+          }
+        });
+      }
+    });
+  });
+
+  // Set first button as active by default
+  if (companyBtns.length > 0) {
+    companyBtns[0].classList.add('active');
+  }
 }
 
 // Initialize everything when DOM is ready

@@ -102,7 +102,7 @@
         <span class="hero-line">BUILDING THE FUTURE</span>
         <span class="hero-line">OF SAUDI ARABIA</span>
       </h1>
-      <p class="hero-sub">A diversified family business group with over four decades of excellence across the GCC, leading in refrigeration, real estate, healthcare, and industrial solutions.</p>
+      <p class="hero-subtitle">A diversified family business group with over four decades of excellence across the GCC, leading in refrigeration, real estate, healthcare, and industrial solutions.</p>
       <div class="hero-metrics">
         <div class="metric-item">
           <span class="stat-number counter" data-target="7">0</span>
@@ -166,7 +166,7 @@
           </div>
           
           <!-- Image (hidden on mobile, shown on desktop) -->
-          <div class="about-image about-image-desktop">
+          <div class="about-image">
             <div class="image-frame">
               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Samara Group office">
               <div class="frame-overlay"></div>
@@ -193,11 +193,11 @@
           </div>
 
           <!-- Image moved here for mobile only -->
-          <div class="about-image-wrapper about-image-mobile-only"></div>
+          <div class="about-image" data-mobile-only></div>
 
           <!-- Company Showcase - Moved from Hero -->
           <div class="about-company-showcase">
-            <h3 class="about-heading">Our Companies</h3>
+            <h3 class="section-subtitle">Our Companies</h3>
             <div class="company-buttons">
               <button class="company-btn" data-company="samara">Samara H-VACR</button>
               <button class="company-btn" data-company="realestate">Real Estate</button>
@@ -225,26 +225,20 @@
 
   <!-- Founder Message Section -->
   <section class="founder-section dark-section" id="founder">
-    <div class="founder-wrapper">
-      <div class="founder-portrait">
-        <div class="founder-portrait-frame">
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-image-wrapper">
           <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="Founder portrait">
         </div>
-        <div class="founder-portrait-accent"></div>
-      </div>
-      <div class="founder-content">
-        <span class="founder-label">A Message From Our Founder</span>
-        <span class="founder-quote-mark">&ldquo;</span>
-        <p class="founder-quote">
-          When we laid the first stone of Samara Group in 1984, our vision was simple yet ambitious: to build a legacy rooted in <strong>integrity, quality, and service</strong> to our nation. Four decades later, that vision continues to guide every decision we make.
-          <br><br>
-          We are not just a business group; we are a family committed to contributing to the Kingdom's growth and to the prosperity of the communities we serve. Our journey from a single refrigeration company to a diversified conglomerate is a testament to the trust of our partners and the dedication of our team.
-          <br><br>
-          As Saudi Arabia strides boldly toward Vision 2030, we stand ready to play our part, building the infrastructure, healthcare, and innovations that will shape the future of generations to come.
-        </p>
-        <div class="founder-signature">
-          <div class="founder-name">The Founder</div>
-          <div class="founder-title">Chairman, Samara Group</div>
+        <div class="founder-quote-box">
+          <blockquote>
+            When we laid the first stone of Samara Group in 1984, our vision was simple yet ambitious: to build a legacy rooted in <strong>integrity, quality, and service</strong> to our nation. Four decades later, that vision continues to guide every decision we make.
+            <br><br>
+            We are not just a business group; we are a family committed to contributing to the Kingdom's growth and to the prosperity of the communities we serve. Our journey from a single refrigeration company to a diversified conglomerate is a testament to the trust of our partners and the dedication of our team.
+            <br><br>
+            As Saudi Arabia strides boldly toward Vision 2030, we stand ready to play our part, building the infrastructure, healthcare, and innovations that will shape the future of generations to come.
+          </blockquote>
+          <cite>The Founder<br>Chairman, Samara Group</cite>
         </div>
       </div>
     </div>
@@ -451,7 +445,7 @@
   </section>
 
   <!-- Companies Section -->
-  <section class="companies-section light-section" id="companies">
+  <section class="about-section light-section" id="companies">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Our Companies</span>
@@ -562,7 +556,7 @@
   </section>
 
   <!-- Ecosystem Section -->
-  <section class="ecosystem-section dark-section" id="investments">
+  <section class="services-section dark-section" id="investments">
     <div class="container">
       <div class="section-header">
         <span class="section-label" data-ecosystem-label>Investment Ecosystem</span>
@@ -716,7 +710,7 @@
       <a href="#" class="nav-logo">
         <img src="samara-logo-group.png" alt="Samara Group" class="nav-logo-img">
       </a>          <p>A family-based business group in Saudi Arabia & GCC, operating across refrigeration, real estate, healthcare, parking, construction, and chemicals since 1984.</p>
-          <div class="social-links">
+          <div class="footer-social">
             <a href="#" aria-label="LinkedIn">in</a>
             <a href="#" aria-label="Twitter">X</a>
             <a href="#" aria-label="Facebook">f</a>

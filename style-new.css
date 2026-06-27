@@ -3471,6 +3471,21 @@ a:focus-visible {
     top: 0;
   }
   
+  /* Hide desktop image on mobile */
+  .about-sticky-left .about-image {
+    display: none;
+  }
+  
+  /* Show mobile-only image placeholder */
+  .about-text-segment[data-segment="3"] + .about-image[data-mobile-only] {
+    display: block;
+    margin-top: 40px;
+  }
+  
+  .about-image[data-mobile-only] {
+    display: none;
+  }
+  
   .founder-grid {
     grid-template-columns: 1fr;
   }

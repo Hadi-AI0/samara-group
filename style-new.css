@@ -3061,6 +3061,30 @@ a:focus-visible {
   color: var(--color-charcoal) !important;
 }
 
+/* Support company-section as light-section alternative */
+.company-section {
+  --color-bg-local: var(--color-off-white);
+  --color-text-local: var(--color-charcoal);
+  --color-card-bg: var(--color-white);
+  --color-border: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-off-white);
+  color: var(--color-charcoal);
+}
+
+.company-section:nth-of-type(even) {
+  --color-bg-local: var(--color-navy);
+  --color-text-local: var(--color-white);
+  --color-card-bg: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.company-section:nth-of-type(even) h1, .company-section:nth-of-type(even) h2, .company-section:nth-of-type(even) h3,
+.company-section:nth-of-type(even) p, .company-section:nth-of-type(even) span, .company-section:nth-of-type(even) a {
+  color: var(--color-white) !important;
+}
+
 /* Force text colors in sections */
 .dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4, .dark-section h5, .dark-section h6,
 .dark-section p, .dark-section span, .dark-section a, .dark-section li {

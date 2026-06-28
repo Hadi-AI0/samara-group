@@ -168,6 +168,16 @@ p {
   .container {
     padding: 0 var(--space-4);
   }
+  
+  /* Reduce gaps between text segments in about section on mobile */
+  .about-text-segment {
+    min-height: auto;
+    padding: 15px 0;
+  }
+  
+  .about-sticky-right {
+    gap: 0;
+  }
 }
 
 /* ============================================
@@ -2600,8 +2610,38 @@ a:focus-visible {
 }
 
 @media (max-width: 768px) {
+  /* Companies section - 2 column layout on mobile */
   .companies-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* Simplify company cards on mobile - only image, title, category, link */
+  .company-card .card-description {
+    display: none;
+  }
+  
+  .company-card .card-link-text {
+    display: none;
+  }
+  
+  .company-card .card-content {
+    padding: 15px;
+  }
+  
+  .company-card .card-image {
+    height: 140px;
+  }
+  
+  .company-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .company-card .card-category {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
   }
   
   .ecosystem-grid {
@@ -3618,13 +3658,26 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
   
+  /* Make wheel selector wider on mobile */
   .wheel-selector {
     margin: 20px 0;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .radio-input {
     height: 220px;
-    width: 180px;
+    width: 240px;
+  }
+  
+  /* Reduce gaps between about text segments on mobile */
+  .about-text-segment {
+    min-height: auto;
+    padding: 20px 0;
+  }
+  
+  .about-sticky-right {
+    gap: 0;
   }
 }
 
@@ -3879,14 +3932,18 @@ a:focus-visible {
 
 /* --- Responsive Fixes --- */
 @media (max-width: 768px) {
-  /* Founder Stack */
+  /* Founder Stack - Image above text on mobile */
   .founder-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   
-  .founder-quote-box {
+  .founder-image-wrapper {
     order: -1;
+  }
+  
+  .founder-quote-box {
+    order: 1;
     border-left: none;
     border-top: 4px solid var(--color-accent);
     border-radius: 0 0 8px 8px;
@@ -4228,6 +4285,60 @@ a:focus-visible {
   margin-top: 32px;
 }
 
+/* Board section mobile layout - image wide, content underneath */
+@media (max-width: 768px) {
+  .board-main {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .board-image-wrapper {
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .board-content {
+    border-radius: 0 0 10px 10px;
+    padding: 30px;
+  }
+  
+  /* Change thumbnails to display names properly on mobile */
+  .board-thumbnails {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    padding: 0 15px;
+  }
+  
+  .board-thumb {
+    height: auto;
+    aspect-ratio: 3/4;
+  }
+  
+  .board-thumb img {
+    height: 100%;
+  }
+  
+  .board-thumb-name {
+    font-size: 0.6rem;
+  }
+  
+  .board-thumb-role {
+    font-size: 0.5rem;
+  }
+  
+  .board-thumb-info {
+    padding: 8px;
+  }
+  
+  .board-nav-desktop {
+    display: none;
+  }
+  
+  .board-nav-mobile {
+    display: flex;
+  }
+}
+
 /* Timeline Section - Fixed Layout */
 .timeline-section {
   background: transparent;
@@ -4286,6 +4397,22 @@ a:focus-visible {
   margin-top: 60px;
   padding-top: 60px;
   border-top: 2px solid rgba(29, 79, 145, 0.1);
+}
+
+/* Mobile adjustments for company showcase in about section */
+@media (max-width: 768px) {
+  .about-company-showcase {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+  
+  .about-company-showcase .company-buttons {
+    margin-bottom: 20px;
+  }
+  
+  .about-company-showcase .company-info-box {
+    padding: 20px;
+  }
 }
 
 .about-company-showcase .company-buttons {

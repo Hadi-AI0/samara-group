@@ -2809,36 +2809,47 @@ a:focus-visible {
    ============================================ */
 
 /* ============================================
-   STICKY ABOUT SECTION
+   ABOUT SECTION - TWO COLUMN LAYOUT
    ============================================ */
-.about-sticky-container {
+.about-two-column-container {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.about-sticky-left {
-  position: sticky;
-  top: 120px;
-  height: fit-content;
+@media (min-width: 769px) {
+  .about-left-column {
+    padding-right: 20px;
+  }
+  
+  .about-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
-.about-sticky-right {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+@media (max-width: 768px) {
+  .about-two-column-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-left-column {
+    padding-right: 0;
+  }
 }
 
-/* New wrapper for text content */
-.about-text-content {
-  margin-bottom: 40px;
+/* Text content within left column */
+.about-left-column .about-text-content {
+  margin-bottom: 0;
 }
 
-.about-text-segment {
+.about-left-column .about-text-segment {
   min-height: auto;
   display: block;
   padding: 15px 0;
@@ -2847,7 +2858,7 @@ a:focus-visible {
   transition: all 0.3s ease;
 }
 
-.about-text-segment p {
+.about-left-column .about-text-segment p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--color-charcoal);
@@ -2855,19 +2866,12 @@ a:focus-visible {
 }
 
 /* Dark section variant */
-.dark-section .about-text-segment p {
+.dark-section .about-left-column .about-text-segment p {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.dark-section .about-text-segment.active p {
+.dark-section .about-left-column .about-text-segment.active p {
   color: var(--color-white);
-}
-
-/* Wrapper for showcase and badge */
-.about-showcase-badge-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
 
@@ -3140,13 +3144,14 @@ a:focus-visible {
 
 .board-thumbnails {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 0 60px;
 }
 
 .board-thumb {
-  height: 80px;
+  height: 100px;
+  aspect-ratio: 1;
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
@@ -4070,7 +4075,7 @@ a:focus-visible {
 
 .board-thumbnails {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
@@ -4083,6 +4088,7 @@ a:focus-visible {
   opacity: 0.5;
   transition: all 0.3s ease;
   padding: 0;
+  aspect-ratio: 1;
 }
 
 .board-thumb:hover {
@@ -4170,14 +4176,14 @@ a:focus-visible {
   
   /* Change thumbnails to display names properly on mobile */
   .board-thumbnails {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 5px;
     padding: 0 15px;
   }
   
   .board-thumb {
     height: auto;
-    aspect-ratio: 3/4;
+    aspect-ratio: 1;
   }
   
   .board-thumb img {
@@ -4333,7 +4339,7 @@ a:focus-visible {
 }
 
 .company-btn {
-  padding: 8px 16px;
+  padding: 10px 18px;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4343,17 +4349,20 @@ a:focus-visible {
   color: rgba(255,255,255,0.5);
   cursor: pointer;
   transition: all 0.2s ease;
+  border-radius: 4px;
 }
 
 .company-btn:hover {
   border-color: rgba(201,168,76,0.5);
   color: rgba(255,255,255,0.8);
+  background: rgba(201,168,76,0.1);
 }
 
 .company-btn.active {
   background: var(--color-gold);
   border-color: var(--color-gold);
   color: #0a1628;
+  cursor: default;
 }
 
 .company-info-box {
@@ -4412,7 +4421,7 @@ a:focus-visible {
    INVERTED COMPANY SHOWCASE (for About Section)
    ============================================ */
 .about-company-showcase-inverted {
-  margin-top: 60px;
+  margin-top: 0;
   padding: 40px;
   background: var(--color-navy);
   border-radius: 12px;
@@ -4443,6 +4452,7 @@ a:focus-visible {
   border-color: rgba(197, 160, 89, 0.4);
   color: rgba(255, 255, 255, 0.7);
   background: transparent;
+  cursor: pointer;
 }
 
 .about-company-showcase-inverted .company-btn:hover {
@@ -4455,6 +4465,7 @@ a:focus-visible {
   background: var(--color-gold);
   border-color: var(--color-gold);
   color: var(--color-navy);
+  cursor: default;
 }
 
 .about-company-showcase-inverted .company-info-box-inverted {
@@ -5330,15 +5341,58 @@ a:focus-visible {
 }
 
 /* ============================================
-   FEATURED PROJECTS GRID STYLES
+   FEATURED PROJECTS SECTION & GRID STYLES (HOMEPAGE)
    ============================================ */
-.featured-projects-grid {
+.fp-section {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.fp-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 24px;
 }
 
-.featured-project-card-small {
+.fp-filter-btn {
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  color: #6b7280;
+}
+
+.fp-filter-btn:hover {
+  background: #f3f4f6;
+  color: #0a1628;
+}
+
+.fp-filter-btn.active {
+  background: #0a1628;
+  color: #c9a84c;
+}
+
+.fp-card-main {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-navy);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fp-card-main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.fp-card-small {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -5348,30 +5402,30 @@ a:focus-visible {
   min-height: 280px;
 }
 
-.featured-project-card-small:hover {
+.fp-card-small:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.featured-project-card-small .project-image-wrapper {
+.fp-card-small .fp-image-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
   min-height: 280px;
 }
 
-.featured-project-card-small img {
+.fp-card-small img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 
-.featured-project-card-small:hover img {
+.fp-card-small:hover img {
   transform: scale(1.05);
 }
 
-.featured-project-card-small .project-overlay {
+.fp-card-small .fp-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.6) 50%, rgba(10, 22, 40, 0.9) 100%);
@@ -5381,7 +5435,7 @@ a:focus-visible {
   padding: 24px;
 }
 
-.featured-project-card-small .project-category {
+.fp-card-small .fp-category {
   color: var(--color-gold);
   font-size: 10px;
   font-weight: 700;
@@ -5390,7 +5444,7 @@ a:focus-visible {
   margin-bottom: 8px;
 }
 
-.featured-project-card-small .project-title {
+.fp-card-small .fp-title {
   color: var(--color-white);
   font-size: 1.25rem;
   font-weight: 700;
@@ -5399,14 +5453,14 @@ a:focus-visible {
   margin-bottom: 12px;
 }
 
-.featured-project-card-small .project-excerpt {
+.fp-card-small .fp-excerpt {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 16px;
 }
 
-.featured-project-card-small .project-link {
+.fp-card-small .fp-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -5418,26 +5472,30 @@ a:focus-visible {
   transition: gap 0.3s ease;
 }
 
-.featured-project-card-small:hover .project-link {
+.fp-card-small:hover .fp-link {
   gap: 10px;
 }
 
-.featured-project-card-small .project-link svg {
+.fp-card-small .fp-link svg {
   width: 14px;
   height: 14px;
 }
 
 @media (max-width: 768px) {
-  .featured-projects-grid {
+  .fp-section {
+    padding: 60px 0;
+  }
+  
+  .fp-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
   
-  .featured-project-card-small {
+  .fp-card-small {
     min-height: 240px;
   }
   
-  .featured-project-card-small .project-image-wrapper {
+  .fp-card-small .fp-image-wrapper {
     min-height: 240px;
   }
 }
@@ -5485,6 +5543,7 @@ section.dark-section {
 
 .board-thumb {
   height: 100px;
+  aspect-ratio: 1;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
@@ -5502,5 +5561,6 @@ section.dark-section {
   
   .board-thumb {
     height: 80px;
+    aspect-ratio: 1;
   }
 }

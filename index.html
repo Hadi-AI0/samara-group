@@ -164,17 +164,9 @@
         <p class="section-subtitle">Four Decades of Business Excellence</p>
       </div>
       
-      <div class="about-sticky-container">
-        <div class="about-sticky-left">
-          <!-- Wheel Selector -->
-         
-          
-          <!-- Image (hidden on mobile, shown on desktop) -->
-
-        </div>
-        
-        <div class="about-sticky-right">
-          <!-- Sticky Text Segments - All paragraphs together -->
+      <div class="about-two-column-container">
+        <!-- Left Column: Paragraphs -->
+        <div class="about-left-column">
           <div class="about-text-content">
             <div class="about-text-segment active" data-segment="1">
               <p>Samara Group is a prominent family-based business group based in the Kingdom of Saudi Arabia, with a strategic presence across the GCC region.</p>
@@ -188,38 +180,38 @@
               <p>Our commitment to quality, innovation, and sustainable growth drives our operations, ensuring we deliver value to our partners, clients, and the communities we serve.</p>
             </div>
           </div>
-
-          <!-- Company Showcase and Badge Container -->
-          <div class="about-showcase-badge-wrapper">
-            <!-- Company Showcase - Second Column with Inverted Colors -->
-            <div class="about-company-showcase-inverted">
-              <h3 class="section-subtitle">Our Companies</h3>
-              <div class="company-buttons">
-                <button class="company-btn active" data-company="samara">Samara H-VACR</button>
-                <button class="company-btn" data-company="realestate">Real Estate</button>
-                <button class="company-btn" data-company="sararyah">Saryryah</button>
-                <button class="company-btn" data-company="parking">Parking</button>
-                <button class="company-btn" data-company="builmix">Builmix</button>
-                <button class="company-btn" data-company="mahara">Mahara</button>
-                <button class="company-btn" data-company="salmiya">Salmiya Oasis</button>
-              </div>
-              <div class="company-info-box-inverted">
-                <div class="company-info-header">
-                  <h3 class="company-info-title" data-info-title="">Samara H-VACR</h3>
-                  <div class="company-info-meta">
-                    <span class="company-info-category" data-info-category="">HVAC & Refrigeration</span>
-                  </div>
-                </div>
-                <p class="company-info-desc" data-info-desc="">Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.</p>
-                <div class="company-info-divider"></div>
-              </div>
+        </div>
+        
+        <!-- Right Column: Company Showcase + Badge -->
+        <div class="about-right-column">
+          <!-- Company Showcase with Inverted Colors -->
+          <div class="about-company-showcase-inverted">
+            <h3 class="section-subtitle">Our Companies</h3>
+            <div class="company-buttons">
+              <button class="company-btn active" data-company="samara">Samara H-VACR</button>
+              <button class="company-btn" data-company="realestate">Real Estate</button>
+              <button class="company-btn" data-company="sararyah">Saryryah</button>
+              <button class="company-btn" data-company="parking">Parking</button>
+              <button class="company-btn" data-company="builmix">Builmix</button>
+              <button class="company-btn" data-company="mahara">Mahara</button>
+              <button class="company-btn" data-company="salmiya">Salmiya Oasis</button>
             </div>
-
-            <!-- Saudi Vision 2030 Badge -->
-            <div class="vision-2030-badge-container">
-              <div class="vision-2030-badge">
-                <span class="vision-badge-text">Proudly Aligned with Saudi Vision 2030</span>
+            <div class="company-info-box-inverted">
+              <div class="company-info-header">
+                <h3 class="company-info-title" data-info-title="">Samara H-VACR</h3>
+                <div class="company-info-meta">
+                  <span class="company-info-category" data-info-category="">HVAC & Refrigeration</span>
+                </div>
               </div>
+              <p class="company-info-desc" data-info-desc="">Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.</p>
+              <div class="company-info-divider"></div>
+            </div>
+          </div>
+
+          <!-- Saudi Vision 2030 Badge -->
+          <div class="vision-2030-badge-container">
+            <div class="vision-2030-badge">
+              <span class="vision-badge-text">Proudly Aligned with Saudi Vision 2030</span>
             </div>
           </div>
         </div>
@@ -773,7 +765,7 @@
   </section>
 
   <!-- Featured Projects Section -->
-  <section class="featured-projects-section light-section" id="featured-projects">
+  <section class="fp-section light-section" id="featured-projects">
     <div class="container mx-auto px-6 lg:px-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
         <div>
@@ -784,17 +776,17 @@
           <h2 class="text-4xl md:text-5xl font-black text-[#0a1628]" style="font-family: 'Playfair Display', serif;">Featured Projects</h2>
         </div>
         <div class="flex flex-wrap gap-2">
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-[#0a1628] text-[#c9a84c] filter-btn active" data-filter="all">All</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="hvac">HVAC</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="construction">Construction</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="parking">Smart Parking</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="manufacturing">Manufacturing</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="real-estate">Real Estate</button>
-          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 filter-btn" data-filter="hospitality">Hospitality</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-[#0a1628] text-[#c9a84c] fp-filter-btn active" data-filter="all">All</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="hvac">HVAC</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="construction">Construction</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="parking">Smart Parking</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="manufacturing">Manufacturing</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="real-estate">Real Estate</button>
+          <button class="px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-all bg-white text-gray-500 hover:bg-gray-100 fp-filter-btn" data-filter="hospitality">Hospitality</button>
         </div>
       </div>
       
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-0 mb-6 overflow-hidden shadow-xl group cursor-pointer featured-project-card" data-category="hospitality">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-0 mb-6 overflow-hidden shadow-xl group cursor-pointer fp-card-main" data-category="hospitality">
         <div class="lg:col-span-3 relative overflow-hidden bg-[#0a1628]" style="min-height: 320px;">
           <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop&auto=format" alt="Al Salmiya Oasis — Phase 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" style="min-height: 320px;">
           <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10, 22, 40, 0.2) 0%, rgba(10, 22, 40, 0.5) 50%, rgba(10, 22, 40, 0.8) 100%);"></div>
@@ -814,16 +806,16 @@
         </div>
       </div>
       
-      <div class="featured-projects-grid">
+      <div class="fp-grid">
         <!-- Project Card 1 -->
-        <div class="featured-project-card-small" data-category="real-estate">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="real-estate">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop&auto=format" alt="Samara Real Estate Project">
-            <div class="project-overlay">
-              <span class="project-category">Real Estate</span>
-              <h3 class="project-title">Residential Development</h3>
-              <p class="project-excerpt">Modern residential communities designed for contemporary living.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">Real Estate</span>
+              <h3 class="fp-title">Residential Development</h3>
+              <p class="fp-excerpt">Modern residential communities designed for contemporary living.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -835,14 +827,14 @@
         </div>
         
         <!-- Project Card 2 -->
-        <div class="featured-project-card-small" data-category="hvac">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="hvac">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1581094794329-cd67b9200a23?w=600&h=400&fit=crop&auto=format" alt="HVAC Installation">
-            <div class="project-overlay">
-              <span class="project-category">HVAC</span>
-              <h3 class="project-title">Commercial Climate Control</h3>
-              <p class="project-excerpt">Advanced HVAC systems for large-scale commercial facilities.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">HVAC</span>
+              <h3 class="fp-title">Commercial Climate Control</h3>
+              <p class="fp-excerpt">Advanced HVAC systems for large-scale commercial facilities.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -854,14 +846,14 @@
         </div>
         
         <!-- Project Card 3 -->
-        <div class="featured-project-card-small" data-category="parking">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="parking">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1573348722427-f1d6d5f5d4c6?w=600&h=400&fit=crop&auto=format" alt="Smart Parking Solution">
-            <div class="project-overlay">
-              <span class="project-category">Smart Parking</span>
-              <h3 class="project-title">Automated Parking System</h3>
-              <p class="project-excerpt">Intelligent parking management for urban environments.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">Smart Parking</span>
+              <h3 class="fp-title">Automated Parking System</h3>
+              <p class="fp-excerpt">Intelligent parking management for urban environments.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -873,14 +865,14 @@
         </div>
         
         <!-- Project Card 4 -->
-        <div class="featured-project-card-small" data-category="manufacturing">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="manufacturing">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1565008447742-97f6f38e98e7?w=600&h=400&fit=crop&auto=format" alt="Manufacturing Facility">
-            <div class="project-overlay">
-              <span class="project-category">Manufacturing</span>
-              <h3 class="project-title">Industrial Production Hub</h3>
-              <p class="project-excerpt">State-of-the-art manufacturing facilities for industrial applications.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">Manufacturing</span>
+              <h3 class="fp-title">Industrial Production Hub</h3>
+              <p class="fp-excerpt">State-of-the-art manufacturing facilities for industrial applications.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -892,14 +884,14 @@
         </div>
         
         <!-- Project Card 5 -->
-        <div class="featured-project-card-small" data-category="healthcare">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="healthcare">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop&auto=format" alt="Healthcare Facility">
-            <div class="project-overlay">
-              <span class="project-category">Healthcare</span>
-              <h3 class="project-title">Medical Center Complex</h3>
-              <p class="project-excerpt">Comprehensive healthcare facilities with modern medical technology.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">Healthcare</span>
+              <h3 class="fp-title">Medical Center Complex</h3>
+              <p class="fp-excerpt">Comprehensive healthcare facilities with modern medical technology.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
@@ -911,14 +903,14 @@
         </div>
         
         <!-- Project Card 6 -->
-        <div class="featured-project-card-small" data-category="construction">
-          <div class="project-image-wrapper">
+        <div class="fp-card-small" data-category="construction">
+          <div class="fp-image-wrapper">
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&auto=format" alt="Construction Project">
-            <div class="project-overlay">
-              <span class="project-category">Construction</span>
-              <h3 class="project-title">Infrastructure Development</h3>
-              <p class="project-excerpt">Large-scale construction projects supporting national development.</p>
-              <span class="project-link">
+            <div class="fp-overlay">
+              <span class="fp-category">Construction</span>
+              <h3 class="fp-title">Infrastructure Development</h3>
+              <p class="fp-excerpt">Large-scale construction projects supporting national development.</p>
+              <span class="fp-link">
                 View Project
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>

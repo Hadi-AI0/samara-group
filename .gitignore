@@ -1,4 +1,4 @@
-```gitignore
+```
 # Compiled and build artifacts
 *.pyc
 __pycache__/
@@ -17,29 +17,25 @@ build/
 .venv/
 venv/
 node_modules/
-target/
-.gradle/
 .mypy_cache/
 .pytest_cache/
+target/
+.gradle/
 
 # Logs and temp files
 *.log
 *.tmp
 *.swp
 *.swo
-*.bak
-*.cache
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # System files
 .DS_Store

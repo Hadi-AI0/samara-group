@@ -757,6 +757,12 @@ p {
   margin: 0 auto;
 }
 
+/* Light section variant for section headers */
+.section-light .section-title,
+.section-light .section-subtitle {
+  color: var(--color-charcoal);
+}
+
 /* ============================================
    CARDS
    ============================================ */
@@ -1722,6 +1728,17 @@ p {
   font-size: var(--text-base);
 }
 
+/* Light section variant for contact grid */
+.section-light .contact-item h4,
+.section-light .contact-item p {
+  color: var(--color-charcoal);
+}
+
+.section-light .contact-icon {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
 /* Website Button */
 .website-btn {
   display: inline-flex;
@@ -1994,6 +2011,25 @@ a:focus-visible {
   border-radius: 15px;
   overflow: hidden;
   transition: var(--transition);
+  position: relative;
+}
+
+.showcase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.showcase-card:hover::before {
+  opacity: 1;
 }
 
 .showcase-card:hover {
@@ -2006,6 +2042,20 @@ a:focus-visible {
   width: 100%;
   height: 220px;
   overflow: hidden;
+  position: relative;
+}
+
+.showcase-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .showcase-image img {
@@ -2561,6 +2611,30 @@ a:focus-visible {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+/* Light section variant for second contact grid style */
+.section-light .contact-item {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.section-light .contact-item:hover {
+  background: rgba(197, 160, 89, 0.08);
+  border-color: var(--color-gold);
+}
+
+.section-light .contact-item-icon {
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--color-gold);
+}
+
+.section-light .contact-item h4 {
+  color: var(--color-charcoal);
+}
+
+.section-light .contact-item p {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Website Button */
@@ -4415,20 +4489,25 @@ a:focus-visible {
 
 .vision-2030-badge {
   display: inline-block;
-  background: var(--color-navy);
-  border: 2px solid var(--color-gold);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.15) 0%, rgba(201, 168, 76, 0.05) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   border-radius: 8px;
   padding: 16px 32px;
   text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 .vision-badge-text {
-  color: var(--color-gold);
+  background: linear-gradient(135deg, #c9a84c 0%, #d4b76a 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   white-space: nowrap;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {

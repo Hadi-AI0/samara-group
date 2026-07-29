@@ -174,50 +174,52 @@
         </div>
         
         <div class="about-sticky-right">
-          <!-- Sticky Text Segments -->
-          <div class="about-text-segment active" data-segment="1">
-            <p>Samara Group is a prominent family-based business group based in the Kingdom of Saudi Arabia, with a strategic presence across the GCC region.</p>
-          </div>
-
-          <div class="about-text-segment" data-segment="2">
-            <p>Since our foundation in 1984, we have grown into a diversified conglomerate operating in key sectors including commercial refrigeration, real estate development, healthcare management, parking solutions, ready-mix concrete, and chemical additives.</p>
-          </div>
-
-          <div class="about-text-segment" data-segment="3">
-            <p>Our commitment to quality, innovation, and sustainable growth drives our operations, ensuring we deliver value to our partners, clients, and the communities we serve.</p>
-          </div>
-
-          <!-- Image moved here for mobile only -->
-
-
-          <!-- Company Showcase - Second Column with Inverted Colors -->
-          <div class="about-company-showcase-inverted">
-            <h3 class="section-subtitle">Our Companies</h3>
-            <div class="company-buttons">
-              <button class="company-btn active" data-company="samara">Samara H-VACR</button>
-              <button class="company-btn" data-company="realestate">Real Estate</button>
-              <button class="company-btn" data-company="sararyah">Saryryah</button>
-              <button class="company-btn" data-company="parking">Parking</button>
-              <button class="company-btn" data-company="builmix">Builmix</button>
-              <button class="company-btn" data-company="mahara">Mahara</button>
-              <button class="company-btn" data-company="salmiya">Salmiya Oasis</button>
+          <!-- Sticky Text Segments - All paragraphs together -->
+          <div class="about-text-content">
+            <div class="about-text-segment active" data-segment="1">
+              <p>Samara Group is a prominent family-based business group based in the Kingdom of Saudi Arabia, with a strategic presence across the GCC region.</p>
             </div>
-            <div class="company-info-box-inverted">
-              <div class="company-info-header">
-                <h3 class="company-info-title" data-info-title="">Samara H-VACR</h3>
-                <div class="company-info-meta">
-                  <span class="company-info-category" data-info-category="">HVAC & Refrigeration</span>
-                </div>
+
+            <div class="about-text-segment active" data-segment="2">
+              <p>Since our foundation in 1984, we have grown into a diversified conglomerate operating in key sectors including commercial refrigeration, real estate development, healthcare management, parking solutions, ready-mix concrete, and chemical additives.</p>
+            </div>
+
+            <div class="about-text-segment active" data-segment="3">
+              <p>Our commitment to quality, innovation, and sustainable growth drives our operations, ensuring we deliver value to our partners, clients, and the communities we serve.</p>
+            </div>
+          </div>
+
+          <!-- Company Showcase and Badge Container -->
+          <div class="about-showcase-badge-wrapper">
+            <!-- Company Showcase - Second Column with Inverted Colors -->
+            <div class="about-company-showcase-inverted">
+              <h3 class="section-subtitle">Our Companies</h3>
+              <div class="company-buttons">
+                <button class="company-btn active" data-company="samara">Samara H-VACR</button>
+                <button class="company-btn" data-company="realestate">Real Estate</button>
+                <button class="company-btn" data-company="sararyah">Saryryah</button>
+                <button class="company-btn" data-company="parking">Parking</button>
+                <button class="company-btn" data-company="builmix">Builmix</button>
+                <button class="company-btn" data-company="mahara">Mahara</button>
+                <button class="company-btn" data-company="salmiya">Salmiya Oasis</button>
               </div>
-              <p class="company-info-desc" data-info-desc="">Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.</p>
-              <div class="company-info-divider"></div>
+              <div class="company-info-box-inverted">
+                <div class="company-info-header">
+                  <h3 class="company-info-title" data-info-title="">Samara H-VACR</h3>
+                  <div class="company-info-meta">
+                    <span class="company-info-category" data-info-category="">HVAC & Refrigeration</span>
+                  </div>
+                </div>
+                <p class="company-info-desc" data-info-desc="">Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.</p>
+                <div class="company-info-divider"></div>
+              </div>
             </div>
-          </div>
 
-          <!-- Saudi Vision 2030 Badge -->
-          <div class="vision-2030-badge-container">
-            <div class="vision-2030-badge">
-              <span class="vision-badge-text">Proudly Aligned with Saudi Vision 2030</span>
+            <!-- Saudi Vision 2030 Badge -->
+            <div class="vision-2030-badge-container">
+              <div class="vision-2030-badge">
+                <span class="vision-badge-text">Proudly Aligned with Saudi Vision 2030</span>
+              </div>
             </div>
           </div>
         </div>
@@ -795,7 +797,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-0 mb-6 overflow-hidden shadow-xl group cursor-pointer featured-project-card" data-category="hospitality">
         <div class="lg:col-span-3 relative overflow-hidden bg-[#0a1628]" style="min-height: 320px;">
           <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop&auto=format" alt="Al Salmiya Oasis — Phase 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" style="min-height: 320px;">
-          <div class="absolute inset-0" style="background: rgba(10, 22, 40, 0.6);"></div>
+          <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10, 22, 40, 0.2) 0%, rgba(10, 22, 40, 0.5) 50%, rgba(10, 22, 40, 0.8) 100%);"></div>
           <span class="absolute top-4 left-4 bg-[#c9a84c] text-[#0a1628] text-[10px] font-black uppercase tracking-widest px-3 py-1">Hospitality</span>
         </div>
         <div class="lg:col-span-2 bg-[#0a1628] p-8 lg:p-10 flex flex-col justify-center">
@@ -812,8 +814,120 @@
         </div>
       </div>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 featured-projects-grid">
-        <!-- Additional project cards will be added here -->
+      <div class="featured-projects-grid">
+        <!-- Project Card 1 -->
+        <div class="featured-project-card-small" data-category="real-estate">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop&auto=format" alt="Samara Real Estate Project">
+            <div class="project-overlay">
+              <span class="project-category">Real Estate</span>
+              <h3 class="project-title">Residential Development</h3>
+              <p class="project-excerpt">Modern residential communities designed for contemporary living.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="featured-project-card-small" data-category="hvac">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1581094794329-cd67b9200a23?w=600&h=400&fit=crop&auto=format" alt="HVAC Installation">
+            <div class="project-overlay">
+              <span class="project-category">HVAC</span>
+              <h3 class="project-title">Commercial Climate Control</h3>
+              <p class="project-excerpt">Advanced HVAC systems for large-scale commercial facilities.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="featured-project-card-small" data-category="parking">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1573348722427-f1d6d5f5d4c6?w=600&h=400&fit=crop&auto=format" alt="Smart Parking Solution">
+            <div class="project-overlay">
+              <span class="project-category">Smart Parking</span>
+              <h3 class="project-title">Automated Parking System</h3>
+              <p class="project-excerpt">Intelligent parking management for urban environments.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 4 -->
+        <div class="featured-project-card-small" data-category="manufacturing">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1565008447742-97f6f38e98e7?w=600&h=400&fit=crop&auto=format" alt="Manufacturing Facility">
+            <div class="project-overlay">
+              <span class="project-category">Manufacturing</span>
+              <h3 class="project-title">Industrial Production Hub</h3>
+              <p class="project-excerpt">State-of-the-art manufacturing facilities for industrial applications.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 5 -->
+        <div class="featured-project-card-small" data-category="healthcare">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop&auto=format" alt="Healthcare Facility">
+            <div class="project-overlay">
+              <span class="project-category">Healthcare</span>
+              <h3 class="project-title">Medical Center Complex</h3>
+              <p class="project-excerpt">Comprehensive healthcare facilities with modern medical technology.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 6 -->
+        <div class="featured-project-card-small" data-category="construction">
+          <div class="project-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&auto=format" alt="Construction Project">
+            <div class="project-overlay">
+              <span class="project-category">Construction</span>
+              <h3 class="project-title">Infrastructure Development</h3>
+              <p class="project-excerpt">Large-scale construction projects supporting national development.</p>
+              <span class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

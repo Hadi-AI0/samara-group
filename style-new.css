@@ -583,6 +583,14 @@ p {
   line-height: 1;
 }
 
+.stat-number-presence {
+  display: block;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gold);
+  line-height: 1;
+}
+
 .stat-label {
   display: block;
   font-size: var(--text-sm);
@@ -720,7 +728,7 @@ p {
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 
 .section-label {
@@ -4529,6 +4537,110 @@ a:focus-visible {
   margin-top: 24px;
   height: 1px;
   background: linear-gradient(to right, var(--color-gold), transparent);
+}
+
+/* ============================================
+   INVERTED COMPANY SHOWCASE (for About Section)
+   ============================================ */
+.about-company-showcase-inverted {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 2px solid rgba(29, 79, 145, 0.1);
+}
+
+@media (max-width: 768px) {
+  .about-company-showcase-inverted {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+  
+  .about-company-showcase-inverted .company-buttons {
+    margin-bottom: 20px;
+  }
+  
+  .about-company-showcase-inverted .company-info-box-inverted {
+    padding: 20px;
+  }
+}
+
+.about-company-showcase-inverted .company-buttons {
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+.about-company-showcase-inverted .company-btn {
+  border-color: rgba(29, 79, 145, 0.3);
+  color: rgba(29, 79, 145, 0.6);
+}
+
+.about-company-showcase-inverted .company-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.about-company-showcase-inverted .company-btn.active {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.about-company-showcase-inverted .company-info-box-inverted {
+  background: var(--color-navy);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: var(--shadow-md);
+  color: var(--color-white);
+}
+
+.about-company-showcase-inverted .company-info-title {
+  color: var(--color-white);
+}
+
+.about-company-showcase-inverted .company-info-category {
+  color: var(--color-gold);
+}
+
+.about-company-showcase-inverted .company-info-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-company-showcase-inverted .company-info-divider {
+  background: linear-gradient(to right, var(--color-gold), transparent);
+}
+
+/* Vision 2030 Badge */
+.vision-2030-badge-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.vision-2030-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #0a1628 0%, #1d4f91 100%);
+  border: 2px solid #c9a84c;
+  border-radius: 8px;
+  padding: 16px 32px;
+  text-align: center;
+}
+
+.vision-badge-text {
+  color: #c9a84c;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .vision-2030-badge {
+    padding: 12px 20px;
+  }
+  
+  .vision-badge-text {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
 }
 
 /* ============================================

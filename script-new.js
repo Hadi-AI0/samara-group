@@ -145,6 +145,17 @@ function initMobileMenu() {
     });
   }
 
+  // Close menu when a link is clicked
+  const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"], a[href*=".html"]');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      mobileMenuBtn.focus();
+    });
+  });
+
   // Focus trap within mobile menu
   mobileMenu.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;

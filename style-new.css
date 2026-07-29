@@ -2067,6 +2067,53 @@ a:focus-visible {
 }
 
 /* ============================================
+   FEATURED PROJECTS SECTION (Home Page)
+   ============================================ */
+.featured-projects-section {
+  padding: 100px 0;
+  background-color: var(--color-off-white);
+}
+
+.filter-btn {
+  font-family: var(--font-primary);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filter-btn.active {
+  background-color: var(--color-navy) !important;
+  color: var(--color-gold) !important;
+}
+
+.filter-btn:not(.active) {
+  background-color: var(--color-white) !important;
+  color: var(--color-charcoal) !important;
+}
+
+.filter-btn:not(.active):hover {
+  background-color: var(--color-off-white) !important;
+}
+
+.featured-project-card {
+  background: var(--color-navy);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.featured-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ============================================
    FOOTER STYLES FOR COMPANY PAGES
    ============================================ */
 .footer-content {
@@ -2569,7 +2616,7 @@ a:focus-visible {
   align-items: center;
   gap: 12px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-hover) 100%);
+  background: var(--color-gold);
   color: var(--color-navy);
   text-decoration: none;
   border-radius: 50px;
@@ -2721,12 +2768,7 @@ a:focus-visible {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 32, 64, 0.85) 0%,
-    rgba(15, 32, 64, 0.7) 50%,
-    rgba(15, 32, 64, 0.85) 100%
-  );
+  background: rgba(15, 32, 64, 0.85);
   z-index: 1;
 }
 
@@ -2737,14 +2779,30 @@ a:focus-visible {
 /* ============================================
    STICKY ABOUT SECTION
    ============================================ */
-.about-sticky-container {
-  position: relative;
+.about-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
+}
+
+.about-content-column {
+  position: relative;
+}
+
+.about-showcase-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-sticky-container {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  margin: 0;
 }
 
 .about-sticky-left {
@@ -2977,7 +3035,7 @@ a:focus-visible {
 .board-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,22,40,0.8), transparent);
+  background: rgba(10, 22, 40, 0.8);
 }
 
 .board-image-badge {
@@ -3706,12 +3764,7 @@ a:focus-visible {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: linear-gradient(
-    135deg, 
-    rgba(15, 23, 42, 0.85) 0%, 
-    rgba(15, 23, 42, 0.6) 50%, 
-    rgba(15, 23, 42, 0.4) 100%
-  );
+  background: rgba(15, 23, 42, 0.85);
   z-index: 1;
   pointer-events: none;
 }
@@ -3783,7 +3836,7 @@ a:focus-visible {
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   aspect-ratio: 3/4;
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: var(--color-navy-dark);
 }
 
 .founder-portrait-frame img {
@@ -4053,7 +4106,7 @@ a:focus-visible {
   left: 0;
   right: 0;
   padding: 12px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .board-thumb-name {
@@ -4330,7 +4383,7 @@ a:focus-visible {
 .company-info-divider {
   margin-top: 24px;
   height: 1px;
-  background: linear-gradient(to right, var(--color-gold), transparent);
+  background: var(--color-gold);
 }
 
 /* ============================================
@@ -4631,7 +4684,7 @@ a:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10, 22, 40, 0.96) 0%, rgba(10, 22, 40, 0.75) 50%, rgba(10, 22, 40, 0.1) 100%);
+  background: rgba(10, 22, 40, 0.96);
 }
 
 .sectors-content-container {
@@ -4787,7 +4840,7 @@ a:focus-visible {
   right: 0;
   bottom: 0;
   padding: 0.75rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .thumbnail-vision {
@@ -4992,7 +5045,7 @@ a:focus-visible {
 .mp-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, transparent, rgba(10, 22, 40, 0.4));
+  background: rgba(10, 22, 40, 0.4);
 }
 
 .mp-card-badge {

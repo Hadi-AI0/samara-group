@@ -1,43 +1,84 @@
 ```
-# Build artifacts
-*.css.map
-*.js.map
-dist/
-build/
-
-# Dependencies
-node_modules/
-
 # Logs and temp files
 *.log
 *.tmp
+*.swp
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
 # Editors
 .vscode/
 .idea/
 
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Python
+# Dependencies
+node_modules/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
+venv/
+.venv/
+.env
+.venv.bak/
+pip-log.txt
+pip-selfcheck.json
+
+# Build artifacts
+dist/
+build/
+*.out
+*.exe
+*.dll
 *.so
+*.a
+*.o
+*.obj
+*.class
 
-# Coverage reports
-coverage/
-htmlcov/
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
 .coverage
+htmlcov/
+.nyc_output/
+coverage/
+.junit.xml
 
-# MyPy cache
-.mypy_cache/
+# Compression
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+
+# Original rules preserved
+*.log
 ```

@@ -3150,8 +3150,8 @@ a:focus-visible {
 }
 
 .board-thumb {
-  height: 100px;
-  aspect-ratio: 1;
+  height: auto;
+  aspect-ratio: 16/9;
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
@@ -4088,7 +4088,7 @@ a:focus-visible {
   opacity: 0.5;
   transition: all 0.3s ease;
   padding: 0;
-  aspect-ratio: 1;
+  aspect-ratio: 16/9;
 }
 
 .board-thumb:hover {
@@ -4103,7 +4103,7 @@ a:focus-visible {
 
 .board-thumb img {
   width: 100%;
-  height: 176px;
+  height: 220px;
   object-fit: cover;
   object-position: top;
   transition: transform 0.5s ease;
@@ -4469,7 +4469,7 @@ a:focus-visible {
 }
 
 .about-company-showcase-inverted .company-info-box-inverted {
-  background: var(--color-navy-dark);
+  background: var(--color-navy);
   border: 1px solid rgba(197, 160, 89, 0.3);
   box-shadow: var(--shadow-md);
   color: var(--color-white);
@@ -5399,19 +5399,19 @@ a:focus-visible {
   background: var(--color-navy);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 280px;
+  min-height: 320px;
 }
 
 .fp-card-small:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
 .fp-card-small .fp-image-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 280px;
+  min-height: 320px;
 }
 
 .fp-card-small img {
@@ -5422,7 +5422,7 @@ a:focus-visible {
 }
 
 .fp-card-small:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .fp-card-small .fp-overlay {
@@ -5432,53 +5432,57 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24px;
+  padding: 28px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 .fp-card-small .fp-category {
   color: var(--color-gold);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .fp-card-small .fp-title {
   color: var(--color-white);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
   line-height: 1.3;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .fp-card-small .fp-excerpt {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
   line-height: 1.5;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .fp-card-small .fp-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: var(--color-gold);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: gap 0.3s ease;
+  text-decoration: none;
 }
 
 .fp-card-small:hover .fp-link {
-  gap: 10px;
+  gap: 12px;
 }
 
 .fp-card-small .fp-link svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 768px) {
@@ -5492,11 +5496,11 @@ a:focus-visible {
   }
   
   .fp-card-small {
-    min-height: 240px;
+    min-height: 280px;
   }
   
   .fp-card-small .fp-image-wrapper {
-    min-height: 240px;
+    min-height: 280px;
   }
 }
 

@@ -5380,11 +5380,16 @@ a:focus-visible {
 
 .fp-card-main {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
   border-radius: 12px;
   overflow: hidden;
   background: var(--color-navy);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 320px;
+  width: 100%;
 }
 
 .fp-card-main:hover {

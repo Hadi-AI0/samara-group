@@ -847,17 +847,55 @@ function initCompanyShowcase() {
   }
 }
 
+/**
+ * Featured Projects Filter Functionality
+ */
+function initFeaturedProjectsFilter() {
+  const filterBtns = document.querySelectorAll('.fp-filter-btn');
+  const cards = document.querySelectorAll('.fp-card-small, .fp-card-main');
+  
+  if (filterBtns.length === 0 || cards.length === 0) return;
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      const filterValue = btn.getAttribute('data-filter');
+      
+      // Filter cards
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'block';
+          gsap.fromTo(card, 
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+          );
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
 // Initialize everything when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
     animateOverview();
     animateProgressBars();
+    initFeaturedProjectsFilter();
     lucide.createIcons();
   });
 } else {
   initPreloader();
   animateOverview();
   animateProgressBars();
+  initFeaturedProjectsFilter();
   lucide.createIcons();
 }

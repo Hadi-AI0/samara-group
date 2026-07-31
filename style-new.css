@@ -5394,6 +5394,7 @@ a:focus-visible {
 
 .fp-card-small {
   position: relative;
+  display: block;
   border-radius: 12px;
   overflow: hidden;
   background: var(--color-navy);

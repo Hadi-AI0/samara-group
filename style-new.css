@@ -5354,7 +5354,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 24px;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .fp-filter-btn {
@@ -5384,6 +5384,7 @@ a:focus-visible {
 .fp-card-main-container {
   position: relative;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .fp-card-main {

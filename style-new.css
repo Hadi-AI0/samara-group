@@ -5663,3 +5663,31 @@ section.dark-section {
     aspect-ratio: 1;
   }
 }
+
+/* ============================================
+   COMPANY LINK SECTION - CENTERED BUTTON
+   ============================================ */
+.company-link {
+  padding: var(--space-16) 0;
+  background-color: var(--color-off-white);
+  text-align: center;
+}
+
+.company-link .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-link .section-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.company-link .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}

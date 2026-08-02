@@ -861,49 +861,49 @@ function initFeaturedProjectsFilter() {
   // Data for each category - extracted from company pages
   const projectData = {
     'hospitality': {
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/salmiya4.webp',
       category: 'Hospitality',
-      title: 'Al Salmiya Oasis — Phase 1',
+      title: 'Al Salmiya Oasis',
       description: 'Resort development featuring premium leisure facilities, events spaces, and hospitality services.',
       link: 'salmiya-oasis.html'
     },
     'real-estate': {
-      image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop',
+      image: 'webp_images/construction.webp',
       category: 'Real Estate',
-      title: 'Al-Khobar Commercial Complex',
-      description: 'A mixed-use development featuring retail outlets, office spaces, and parking facilities in the heart of Al-Khobar.',
+      title: 'Residential Development',
+      description: 'Developing a modern residential communities designed for contemporary living.',
       link: 'samara-real-estate.html'
     },
     'hvac': {
-      image: 'https://images.unsplash.com/photo-1581094794329-cd67b9200a23?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/HVAC-hero.webp',
       category: 'HVAC',
       title: 'Commercial Climate Control',
       description: 'Advanced HVAC systems for large-scale commercial facilities.',
       link: 'samara-H-VACR.html'
     },
     'parking': {
-      image: 'https://images.unsplash.com/photo-1573348722427-f1d6d5f5d4c6?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/SPS-Project.webp',
       category: 'Smart Parking',
       title: 'Automated Parking System',
       description: 'Intelligent parking management for urban environments.',
       link: 'samara-parking.html'
     },
     'manufacturing': {
-      image: 'https://images.unsplash.com/photo-1565008447742-97f6f38e98e7?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/builmix_powders.webp',
       category: 'Manufacturing',
       title: 'Industrial Production Hub',
       description: 'State-of-the-art manufacturing facilities for industrial applications.',
       link: 'builmix.html'
     },
     'healthcare': {
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/healthcare.webp',
       category: 'Healthcare',
       title: 'Medical Center Complex',
       description: 'Comprehensive healthcare facilities with modern medical technology.',
       link: 'saryryah-healthcare.html'
     },
     'construction': {
-      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&auto=format',
+      image: 'webp_images/Diversification-Era.webp',
       category: 'Construction',
       title: 'Infrastructure Development',
       description: 'Large-scale construction projects supporting national development.',

@@ -4536,34 +4536,48 @@ a:focus-visible {
   opacity: 0.3;
 }
 
-/* Vision 2030 Badge */
-.vision-2030-badge-container {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
+/* Vision 2030 Badge - Neon Gold Theme */
 .vision-2030-badge {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(201, 168, 76, 0.15) 0%, rgba(201, 168, 76, 0.05) 100%);
-  border: 1px solid rgba(201, 168, 76, 0.4);
+  background-color: var(--color-navy-dark);
+  
+  /* Multi-layered border & neon gold glow effect */
+  border: 1px solid var(--color-gold-hover);
   border-radius: 8px;
   padding: 16px 32px;
   text-align: center;
-  backdrop-filter: blur(5px);
+  
+  /* Ambient glowing halo that works on light/off-white backgrounds */
+  box-shadow: 
+    0 0 10px rgba(212, 176, 106, 0.4),  /* Inner soft gold glow */
+    0 0 20px rgba(197, 160, 89, 0.25),  /* Wider ambient gold diffusion */
+    0 4px 15px rgba(10, 21, 40, 0.15);  /* Subtle dark drop-shadow for separation from off-white */
+  
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for extra interactive "neon power" */
+.vision-2030-badge:hover {
+  border-color: #ffe699; /* Bright neon gold accent */
+  box-shadow: 
+    0 0 15px rgba(212, 176, 106, 0.7),
+    0 0 30px rgba(197, 160, 89, 0.4),
+    0 6px 20px rgba(10, 21, 40, 0.2);
 }
 
 .vision-badge-text {
-  background: linear-gradient(135deg, #c9a84c 0%, #d4b76a 50%, #c9a84c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* Bright golden text color */
+  color: var(--color-gold-hover);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   white-space: nowrap;
-  opacity: 0.85;
+  
+  /* Neon text illumination */
+  text-shadow: 
+    0 0 8px rgba(212, 176, 106, 0.6),
+    0 0 16px rgba(197, 160, 89, 0.3);
 }
 
 @media (max-width: 768px) {

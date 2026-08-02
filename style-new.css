@@ -1594,6 +1594,9 @@ p {
   opacity: 0.3;
   transform: scale(0.95);
   transition: opacity 0.5s, transform 0.5s;
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
 }
 
 .timeline-milestone.active {
@@ -1606,7 +1609,7 @@ p {
   padding-right: var(--space-6);
   padding-left: var(--space-10);
   left: 0;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .timeline-milestone:nth-child(even) {
@@ -1614,7 +1617,17 @@ p {
   padding-left: var(--space-10);
   padding-right: var(--space-6);
   left: 0;
-  text-align: left;
+  justify-content: flex-start;
+}
+
+.timeline-image-side {
+  flex: 0 0 284px;
+  flex-shrink: 0;
+}
+
+.timeline-text-side {
+  flex: 1;
+  min-width: 0;
 }
 
 .timeline-content-wrapper {
@@ -1638,12 +1651,10 @@ p {
 }
 
 .timeline-media {
-  flex: 0 0 284px;
   height: 160px;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  flex-shrink: 0;
 }
 
 .timeline-media img {
@@ -1659,8 +1670,7 @@ p {
 }
 
 .timeline-text {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
 }
 
 .timeline-milestone:nth-child(odd) .timeline-text {

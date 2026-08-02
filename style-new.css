@@ -1588,7 +1588,7 @@ p {
 
 .timeline-milestone {
   position: relative;
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-28);
   width: 100%;
   padding: 0 var(--space-6);
   opacity: 0.3;

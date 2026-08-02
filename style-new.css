@@ -2857,7 +2857,7 @@ a:focus-visible {
 }
 
 .about-left-column .about-text-segment p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1.7;
   color: var(--color-charcoal);
   font-weight: 300;
@@ -5160,7 +5160,7 @@ a:focus-visible {
 
 .mp-card-desc {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 30px;
 }
@@ -5455,7 +5455,7 @@ a:focus-visible {
 
 .fp-main-description {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -5584,6 +5584,22 @@ a:focus-visible {
   .fp-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+   
+  .fp-card-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 400px;
+  }
+
+  .fp-main-image {
+    height: 100%;
+    min-height: 200px;
+  }
+
+  .fp-main-content {
+    padding: 1.5rem;
   }
   
   .fp-card-small {

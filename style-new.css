@@ -4566,7 +4566,7 @@ a:focus-visible {
 
 .vision-badge-text {
   /* Bright golden text color */
-  color: var(--color-gold-hover);
+  color: var(--color-white);
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;

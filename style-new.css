@@ -1589,7 +1589,7 @@ p {
 .timeline-milestone {
   position: relative;
   margin-bottom: var(--space-20);
-  width: 50%;
+  width: 100%;
   padding: 0 var(--space-6);
   opacity: 0.3;
   transform: scale(0.95);
@@ -1605,49 +1605,39 @@ p {
 }
 
 .timeline-milestone:nth-child(odd) {
-  margin-left: 0;
-  padding-right: var(--space-6);
-  padding-left: var(--space-10);
-  left: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .timeline-milestone:nth-child(even) {
-  margin-left: 50%;
-  padding-left: var(--space-10);
-  padding-right: var(--space-6);
-  left: 0;
-  justify-content: flex-start;
-}
-
-.timeline-image-side {
-  flex: 0 0 284px;
-  flex-shrink: 0;
-}
-
-.timeline-text-side {
-  flex: 1;
-  min-width: 0;
-}
-
-.timeline-content-wrapper {
-  display: flex;
-  gap: var(--space-4);
-  align-items: center;
-  max-width: 100%;
-  width: 100%;
-}
-
-.timeline-milestone:nth-child(odd) .timeline-content-wrapper {
-  flex-direction: row;
   justify-content: flex-end;
-  padding-right: var(--space-4);
 }
 
-.timeline-milestone:nth-child(even) .timeline-content-wrapper {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-  padding-left: var(--space-4);
+.timeline-image-wrapper,
+.timeline-text-wrapper {
+  flex: 0 0 calc(50% - var(--space-4));
+  max-width: calc(50% - var(--space-4));
+}
+
+.timeline-milestone:nth-child(odd) .timeline-image-wrapper {
+  order: 2;
+  margin-left: auto;
+}
+
+.timeline-milestone:nth-child(odd) .timeline-text-wrapper {
+  order: 1;
+  margin-right: auto;
+  text-align: right;
+}
+
+.timeline-milestone:nth-child(even) .timeline-image-wrapper {
+  order: 1;
+  margin-right: auto;
+}
+
+.timeline-milestone:nth-child(even) .timeline-text-wrapper {
+  order: 2;
+  margin-left: auto;
+  text-align: left;
 }
 
 .timeline-media {
@@ -1671,14 +1661,6 @@ p {
 
 .timeline-text {
   width: 100%;
-}
-
-.timeline-milestone:nth-child(odd) .timeline-text {
-  text-align: right;
-}
-
-.timeline-milestone:nth-child(even) .timeline-text {
-  text-align: left;
 }
 
 .timeline-year {
@@ -1852,11 +1834,15 @@ p {
     margin-left: 0 !important;
     padding-left: 40px;
     padding-right: var(--space-4);
+    flex-direction: column;
   }
   
-  .timeline-content-wrapper {
-    flex-direction: column !important;
-    gap: var(--space-4);
+  .timeline-image-wrapper,
+  .timeline-text-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: unset !important;
+    margin: 0 !important;
   }
   
   .timeline-media {

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBoardCarousel();
   initCompanyShowcase();
   initTimeline();
+  initLaborBanner();
 });
 
 /**

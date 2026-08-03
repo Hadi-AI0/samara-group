@@ -8,7 +8,7 @@
   /* Color Palette */
   --color-navy: #0f2040;
   --color-navy-dark: #0a1528;
-  --color-off-white: #f8f9fa;
+  --color-off-white: #f4f1eb;
   --color-gold: #c5a059;
   --color-gold-hover: #d4b06a;
   --color-charcoal: #333333;
@@ -3784,6 +3784,172 @@ a:focus-visible {
   background-color: var(--color-bg-local, var(--color-off-white));
 }
 
+/* --- Labor Banner Section --- */
+.labor-banner-section {
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+  min-height: 420px;
+}
+
+.labor-banner-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.labor-banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.12);
+  transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.labor-banner-section.visible .labor-banner-bg {
+  transform: scale(1.05);
+}
+
+.labor-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.20));
+}
+
+[dir="rtl"] .labor-banner-overlay {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.20));
+}
+
+.labor-banner-gold-top,
+.labor-banner-gold-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #c9a84c;
+}
+
+.labor-banner-gold-top {
+  top: 0;
+}
+
+.labor-banner-gold-bottom {
+  bottom: 0;
+}
+
+.labor-banner-content-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+.labor-banner-content {
+  max-width: 2xl;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s 0.3s ease-out, transform 0.9s 0.3s ease-out;
+}
+
+.labor-banner-section.visible .labor-banner-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.labor-banner-label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+[dir="rtl"] .labor-banner-label-wrapper {
+  flex-direction: row-reverse;
+}
+
+.labor-banner-line {
+  height: 1px;
+  width: 40px;
+  background: #c9a84c;
+}
+
+.labor-banner-label {
+  color: #c9a84c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.labor-banner-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.labor-banner-sub {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 40px;
+  max-width: 32rem;
+}
+
+.labor-banner-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+[dir="rtl"] .labor-banner-stats {
+  flex-direction: row-reverse;
+}
+
+.labor-banner-stat-item {
+  padding: 0 24px;
+}
+
+.labor-banner-stat-item:first-child {
+  padding-left: 0;
+}
+
+[dir="rtl"] .labor-banner-stat-item:first-child {
+  padding-left: 24px;
+  padding-right: 0;
+}
+
+.labor-banner-stat-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #c9a84c;
+}
+
+.labor-banner-stat-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 4px;
+}
+
+.labor-banner-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+[dir="rtl"] .labor-banner-stat-divider {
+  transform: scaleX(-1);
+}
+
 .board-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -5488,7 +5654,7 @@ a:focus-visible {
    ============================================ */
 .fp-section {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: var(--color-off-white);
 }
 
 .fp-grid {
@@ -5585,7 +5751,7 @@ a:focus-visible {
   color: var(--color-white);
   font-size: 1.5rem;
   font-weight: 900;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   line-height: 1.3;
   margin-bottom: 1rem;
 }
@@ -5685,7 +5851,7 @@ a:focus-visible {
   color: var(--color-white);
   font-size: 1.4rem;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   line-height: 1.3;
   margin-bottom: 14px;
 }

@@ -941,8 +941,8 @@ p {
 
 @media (max-width: 768px) {
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
   }
 }
 

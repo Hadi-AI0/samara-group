@@ -171,6 +171,15 @@ p {
     padding: 0 var(--space-4);
   }
   
+  /* Reduce navbar height on mobile */
+  .nav-container {
+    height: 60px;
+  }
+  
+  .nav-logo-img {
+    height: 32px;
+  }
+  
   /* Reduce gaps between text segments in about section on mobile */
   .about-text-segment {
     min-height: auto;
@@ -757,6 +766,11 @@ p {
   opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* About section showcase subtitle - golden color */
+.about-company-showcase-inverted .section-subtitle {
+  color: var(--color-gold) !important;
 }
 
 /* Light section variant for section headers */
@@ -1830,7 +1844,7 @@ p {
     grid-template-columns: 1fr;
   }
   
-  /* Timeline Mobile */
+  /* Timeline Mobile - Disable alternating layout */
   .timeline-milestone {
     width: 100%;
     margin-left: 0 !important;
@@ -1838,6 +1852,12 @@ p {
     padding-left: 40px;
     padding-right: var(--space-4);
     flex-direction: column;
+    justify-content: flex-start !important;
+  }
+  
+  .timeline-milestone:nth-child(odd),
+  .timeline-milestone:nth-child(even) {
+    justify-content: flex-start !important;
   }
   
   .timeline-image-wrapper,
@@ -1846,6 +1866,20 @@ p {
     max-width: 100%;
     order: unset !important;
     margin: 0 !important;
+    text-align: left !important;
+  }
+  
+  .timeline-milestone:nth-child(odd) .timeline-image-wrapper,
+  .timeline-milestone:nth-child(even) .timeline-image-wrapper {
+    order: unset !important;
+    margin: 0 !important;
+  }
+  
+  .timeline-milestone:nth-child(odd) .timeline-text-wrapper,
+  .timeline-milestone:nth-child(even) .timeline-text-wrapper {
+    order: unset !important;
+    margin: 0 !important;
+    text-align: left !important;
   }
   
   .timeline-media {
@@ -2877,11 +2911,27 @@ a:focus-visible {
 @media (max-width: 768px) {
   .about-two-column-container {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
   
   .about-left-column {
     padding-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  /* Add proper spacing between header and body text */
+  .about-left-column h2 {
+    margin-bottom: 20px;
+  }
+  
+  .about-left-column .about-text-segment {
+    padding: 10px 0;
+  }
+  
+  .about-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
@@ -4473,16 +4523,29 @@ a:focus-visible {
 
 @media (max-width: 768px) {
   .about-company-showcase-inverted {
-    margin-top: 30px;
-    padding: 25px;
+    margin-top: 20px;
+    padding: 20px;
   }
   
   .about-company-showcase-inverted .company-buttons {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .about-company-showcase-inverted .company-btn {
+    padding: 8px 12px;
+    font-size: 0.7rem;
   }
   
   .about-company-showcase-inverted .company-info-box-inverted {
-    padding: 20px;
+    padding: 15px;
+  }
+  
+  /* Fix subtitle spacing on mobile */
+  .about-company-showcase-inverted .section-subtitle {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
   }
 }
 
@@ -4580,13 +4643,19 @@ a:focus-visible {
 }
 
 @media (max-width: 768px) {
+  .vision-2030-badge-container {
+    margin-top: 15px;
+  }
+  
   .vision-2030-badge {
     padding: 12px 20px;
+    width: 100%;
   }
   
   .vision-badge-text {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     white-space: normal;
+    letter-spacing: 0.08em;
   }
 }
 
@@ -5383,6 +5452,14 @@ a:focus-visible {
   
   .mp-stats {
     flex-wrap: wrap;
+    gap: 10px;
+    display: flex;
+  }
+  
+  .mp-stat-pill {
+    flex: 1 1 calc(50% - 5px);
+    min-width: calc(50% - 5px);
+    padding: 10px 15px;
   }
   
   .mp-info-strip {
@@ -5652,20 +5729,30 @@ a:focus-visible {
     gap: 16px;
   }
 
+  /* Fix main card visibility and remove duplicate category */
+  .fp-card-main-container {
+    margin-bottom: 1rem;
+  }
    
   .fp-card-main {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    min-height: 400px;
+    grid-template-rows: auto;
+    min-height: auto;
+    aspect-ratio: auto;
   }
 
   .fp-main-image {
-    height: 100%;
-    min-height: 200px;
+    height: 220px;
+    min-height: 220px;
   }
 
   .fp-main-content {
     padding: 1.5rem;
+  }
+  
+  /* Hide duplicate category label, keep only the main one */
+  .fp-main-category-label {
+    display: none;
   }
   
   .fp-card-small {

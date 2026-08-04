@@ -606,6 +606,25 @@ function animateOverview() {
 // Initialize wheel animation
 animateOverview();
 
+/**
+ * Labor Banner - IntersectionObserver for visibility animation
+ */
+function initLaborBanner() {
+  const laborBanner = document.querySelector('.labor-banner-section');
+  if (!laborBanner) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        laborBanner.classList.add('visible');
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(laborBanner);
+}
+
 /* =========================================
    CLEANUP DUPLICATE FUNCTIONS
    ========================================= */

@@ -546,7 +546,7 @@ p {
 .hero-metrics {
   display: flex;
   justify-content: center;
-  gap: var(--space-12);
+  gap: var(--space-8);
   margin-bottom: var(--space-10);
   opacity: 0;
   transform: translateY(30px);
@@ -555,14 +555,23 @@ p {
 @media (max-width: 768px) {
   .hero-metrics {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-6);
+    flex-wrap: nowrap;
+    gap: var(--space-3);
     justify-content: center;
   }
   
   .metric-item {
-    min-width: calc(50% - var(--space-6));
+    min-width: auto;
     text-align: center;
+  }
+  
+  .stat-number,
+  .stat-number-presence {
+    font-size: var(--text-2xl);
+  }
+  
+  .stat-label {
+    font-size: var(--text-xs);
   }
 }
 
@@ -598,7 +607,7 @@ p {
 
 .stat-number {
   display: block;
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   color: var(--color-gold);
   line-height: 1;
@@ -606,7 +615,7 @@ p {
 
 .stat-number-presence {
   display: block;
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   color: var(--color-gold);
   line-height: 1;
@@ -617,6 +626,7 @@ p {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.8);
   margin-top: var(--space-2);
+  white-space: nowrap;
 }
 
 /* Buttons */
@@ -2952,7 +2962,7 @@ a:focus-visible {
 .about-left-column .about-text-segment {
   min-height: auto;
   display: block;
-  padding: 15px 0;
+  padding: 25px 0 15px;
   opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease;
@@ -4326,6 +4336,11 @@ a:focus-visible {
   gap: 8px;
 }
 
+.board-indicator.active {
+  width: 32px;
+  background: #c9a84c;
+}
+
 .board-indicator {
   height: 2px;
   width: 16px;
@@ -4333,11 +4348,6 @@ a:focus-visible {
   border: none;
   cursor: pointer;
   transition: var(--transition);
-}
-
-.board-indicator.active {
-  width: 32px;
-  background: #c9a84c;
 }
 
 .board-thumbnails {
@@ -4731,7 +4741,7 @@ a:focus-visible {
 }
 
 .about-company-showcase-inverted .section-subtitle {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   display: block;
 }
 
@@ -4740,7 +4750,7 @@ a:focus-visible {
   border: 1px solid rgba(197, 160, 89, 0.3);
   box-shadow: var(--shadow-md);
   color: var(--color-white);
-  padding: 24px;
+  padding: 32px;
 }
 
 .about-company-showcase-inverted .company-btn {
@@ -4907,21 +4917,21 @@ a:focus-visible {
 .sectors-header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1.5rem 2rem;
+  padding: 2rem 1.5rem 1rem;
 }
 
 .sectors-header {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .sectors-title-wrapper {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .sectors-label-line {
@@ -5700,14 +5710,14 @@ a:focus-visible {
 }
 
 .fp-filter-btn.active {
-  background: #0a1628;
+  background: #001f3f;
   color: #c9a84c;
 }
 
 .fp-card-main-container {
   position: relative;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .fp-card-main {

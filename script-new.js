@@ -662,6 +662,7 @@ function initBoardCarousel() {
   const boardThumbs = document.querySelectorAll('.board-thumb');
   const boardIndicators = document.querySelectorAll('.board-indicator');
   const boardMainImages = document.querySelectorAll('.board-main-img');
+  const boardLinkedinBtn = document.getElementById('board-linkedin-btn');
   const boardContentElements = {
     subtitle: document.querySelector('[data-board-subtitle]'),
     role: document.querySelector('[data-board-role]'),
@@ -702,12 +703,20 @@ function initBoardCarousel() {
       }
     });
 
+    // Update LinkedIn button href
+    if (boardLinkedinBtn) {
+      const targetThumb = boardThumbs[index];
+      const linkedinUrl = targetThumb.getAttribute('data-linkedin') || '#';
+      boardLinkedinBtn.href = linkedinUrl;
+    }
+
     // Update content with fade animation
     if (boardContentElements.subtitle && boardContentElements.role && 
         boardContentElements.name && boardContentElements.desc) {
       const targetThumb = boardThumbs[index];
       const newName = targetThumb.querySelector('.board-thumb-name')?.textContent || '';
       const newRole = targetThumb.querySelector('.board-thumb-role')?.textContent || '';
+      const newDesc = targetThumb.querySelector('.board-thumb-desc')?.textContent || '';
 
       gsap.to([boardContentElements.name, boardContentElements.role, boardContentElements.desc], {
         opacity: 0,
@@ -716,6 +725,7 @@ function initBoardCarousel() {
         onComplete: () => {
           boardContentElements.name.textContent = newName;
           boardContentElements.role.textContent = newRole;
+          boardContentElements.desc.textContent = newDesc;
           gsap.to([boardContentElements.name, boardContentElements.role, boardContentElements.desc], {
             opacity: 1,
             y: 0,

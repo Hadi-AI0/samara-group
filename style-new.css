@@ -3244,9 +3244,10 @@ a:focus-visible {
   cursor: pointer;
   transition: var(--transition-base);
   border-radius: 50%;
+  text-decoration: none;
 }
 
-.board-social-btn:hover {
+a.board-social-btn:hover {
   border-color: var(--color-gold);
   color: var(--color-gold);
   background: rgba(197, 160, 89, 0.1);
@@ -4324,9 +4325,10 @@ a:focus-visible {
   color: rgba(255,255,255,0.5);
   cursor: pointer;
   transition: var(--transition);
+  text-decoration: none;
 }
 
-.board-social-btn:hover {
+a.board-social-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
 }

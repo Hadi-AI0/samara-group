@@ -1,0 +1,47 @@
+name: Deploy Multi-Branch Pages
+
+on:
+  push:
+    branches:
+      - main                     # Your main branch
+      - your-alternative-branch  # Replace with your actual alternative branch name
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps: deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: root-site
+
+      - name: Checkout Alternative Branch
+        uses: actions/checkout@v4
+        with:
+          ref: your-alternative-branch # Replace with your actual alternative branch name
+          path: root-site/alternative-version # This creates the subfolder
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'root-site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

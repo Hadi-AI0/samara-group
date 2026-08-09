@@ -22,23 +22,32 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # 1. Clear out and initialize the target build directory
-      - name: Create Workspace Directories
-        run: mkdir -p combined-site/arabic-version
-
-      # 2. Safely checkout main branch code into the root of combined-site
-      - name: Checkout Main
+      # 1. Download the Main branch into a temp main folder
+      - name: Checkout Main Branch
         uses: actions/checkout@v4
         with:
           ref: main
-          path: combined-site
+          path: temp-main
 
-      # 3. Safely checkout alternative branch code into the subfolder
-      - name: Checkout Arabic Architecture Branch
+      # 2. Download the Arabic branch into a temp arabic folder
+      - name: Checkout Arabic Branch
         uses: actions/checkout@v4
         with:
           ref: arabic-first-multilingual-site-architecture-f6fe4
-          path: combined-site/arabic-version
+          path: temp-arabic
+
+      # 3. Assemble the final structure into a new folder named 'public'
+      - name: Assemble Combined Site
+        run: |
+          mkdir public
+          # Copy main branch files to the root of public
+          cp -r temp-main/* public/ 2>/dev/null || true
+          # Create the subfolder inside public
+          mkdir -p public/arabic-version
+          # Copy arabic branch files into that subfolder
+          cp -r temp-arabic/* public/arabic-version/ 2>/dev/null || true
+          # Clean up GitHub metadata so it doesn't break the build
+          rm -rf public/.github public/arabic-version/.github
 
       # 4. Standard Pages deployment steps
       - name: Setup Pages
@@ -47,7 +56,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'combined-site'
+          path: 'public'
 
       - name: Deploy to GitHub Pages
         id: deployment

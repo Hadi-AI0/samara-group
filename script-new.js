@@ -1,0 +1,1026 @@
+/**
+ * SAMARA GROUP - Redesigned JavaScript
+ * Performance-optimized, accessible interactions
+ */
+
+// Initialize GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize preloader
+  initPreloader();
+  
+  // Initialize all components
+  initNavigation();
+  initMobileMenu();
+  initHeroAnimations();
+  initScrollAnimations();
+  initCounters();
+  initSmoothScroll();
+  initLucideIcons();
+  initBoardCarousel();
+  initCompanyShowcase();
+  initTimeline();
+  initLaborBanner();
+});
+
+/**
+ * Initialize Preloader
+ */
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    // Hide preloader after page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        // Remove from DOM after transition completes
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 800);
+    });
+  }
+}
+
+/**
+ * Initialize Lucide Icons
+ */
+function initLucideIcons() {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  }
+}
+
+/**
+ * Navigation - Sticky header with scroll detection
+ */
+function initNavigation() {
+  const navbar = document.getElementById('main-nav');
+  if (!navbar) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateNavbar() {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    lastScrollY = scrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial check
+  updateNavbar();
+}
+
+/**
+ * Mobile Menu - Full-screen overlay with accordion
+ */
+function initMobileMenu() {
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+  const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+
+  if (!mobileMenu || !mobileMenuBtn || !mobileMenuClose) return;
+
+  // Open menu
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    
+    // Focus trap - focus first link
+    const firstLink = mobileMenu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  });
+
+  // Close menu
+  mobileMenuClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    mobileMenuBtn.focus();
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      mobileMenuBtn.focus();
+    }
+  });
+
+  // Close on outside click
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      mobileMenuBtn.focus();
+    }
+  });
+
+  // Accordion for companies dropdown
+  if (mobileDropdownToggle && mobileDropdownMenu) {
+    mobileDropdownToggle.addEventListener('click', () => {
+      mobileDropdownMenu.classList.toggle('active');
+      const isExpanded = mobileDropdownMenu.classList.contains('active');
+      mobileDropdownToggle.setAttribute('aria-expanded', isExpanded);
+    });
+  }
+
+  // Close menu when a link is clicked
+  const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"], a[href*=".html"]');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      mobileMenuBtn.focus();
+    });
+  });
+
+  // Focus trap within mobile menu
+  mobileMenu.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+
+    const focusableElements = mobileMenu.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    } else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  });
+}
+
+/**
+ * Hero Animations - Staggered fade-in on load + parallax zoom+blur on scroll
+ */
+function initHeroAnimations() {
+  const hero = document.querySelector('.hero, .company-hero');
+  if (!hero) return;
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  // Animate elements in sequence
+  tl.to('.hero-badge, .company-badge', {
+    y: 0,
+    opacity: 1,
+    duration: 0.8
+  })
+  .to('.hero-title, .company-title', {
+    y: 0,
+    opacity: 1,
+    duration: 0.8
+  }, '-=0.6')
+  .to('.hero-subtitle, .company-subtitle', {
+    y: 0,
+    opacity: 1,
+    duration: 0.8
+  }, '-=0.6')
+  .to('.hero-metrics, .company-metrics', {
+    y: 0,
+    opacity: 1,
+    duration: 0.8
+  }, '-=0.6')
+  .to('.hero-cta, .company-cta', {
+    y: 0,
+    opacity: 1,
+    duration: 0.8
+  }, '-=0.6');
+
+  // Parallax zoom+blur effect for company hero background on scroll
+  const companyHeroBg = document.querySelector('.company-hero-bg img');
+  if (companyHeroBg && window.innerWidth > 768) {
+    gsap.to(companyHeroBg, {
+      scale: 1.2,
+      filter: 'blur(8px)',
+      scrollTrigger: {
+        trigger: '.company-hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+}
+
+/**
+ * Scroll Animations - Fade up elements when in viewport
+ */
+function initScrollAnimations() {
+  // Animate cards with stagger
+  const cardGrids = document.querySelectorAll('.card-grid, .services-grid');
+  
+  cardGrids.forEach(grid => {
+    const cards = grid.querySelectorAll('.card, .service-card');
+    
+    ScrollTrigger.batch(cards, {
+      onEnter: batch => {
+        gsap.from(batch, {
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out'
+        });
+      },
+      start: 'top 85%',
+      once: true
+    });
+  });
+
+  // Animate section headers
+  const sectionHeaders = document.querySelectorAll('.section-header, .about-content, .about-company-content');
+  
+  sectionHeaders.forEach(header => {
+    ScrollTrigger.create({
+      trigger: header,
+      start: 'top 80%',
+      onEnter: () => {
+        gsap.from(header, {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power3.out'
+        });
+      },
+      once: true
+    });
+  });
+
+  // Animate about images
+  const aboutImages = document.querySelectorAll('.about-image, .about-company-image, .section-image');
+  
+  aboutImages.forEach(img => {
+    ScrollTrigger.create({
+      trigger: img,
+      start: 'top 80%',
+      onEnter: () => {
+        gsap.from(img, {
+          x: -30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        });
+      },
+      once: true
+    });
+  });
+
+  // Animate fade-up elements (for company pages)
+  const fadeUpElements = document.querySelectorAll('.animate-fade-up');
+  
+  fadeUpElements.forEach((el, index) => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: Math.min(index * 0.1, 0.5)
+        });
+      },
+      once: true
+    });
+  });
+
+  // Animate timeline section
+  const timelineLabel = document.querySelector('.timeline-label');
+  const timelineTitle = document.querySelector('.timeline-title');
+  
+  if (timelineLabel) {
+    ScrollTrigger.create({
+      trigger: timelineLabel,
+      start: 'top 85%',
+      onEnter: () => {
+        gsap.to(timelineLabel, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      },
+      once: true
+    });
+  }
+  
+  if (timelineTitle) {
+    ScrollTrigger.create({
+      trigger: timelineTitle,
+      start: 'top 85%',
+      onEnter: () => {
+        gsap.from(timelineTitle, {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: 'power3.out'
+        });
+      },
+      once: true
+    });
+  }
+}
+
+/**
+ * Number Counters - Animate once when visible
+ */
+function initCounters() {
+  const counters = document.querySelectorAll('.counter, .stat-number, .metric-number');
+  const animatedCounters = new WeakSet();
+
+  counters.forEach(counter => {
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 80%',
+      onEnter: () => {
+        if (animatedCounters.has(counter)) return;
+        animatedCounters.add(counter);
+
+        const target = parseInt(counter.getAttribute('data-target') || counter.textContent.replace(/\D/g, ''));
+        const suffix = counter.textContent.replace(/[\d]/g, '').trim();
+        const duration = 2;
+
+        gsap.fromTo(counter,
+          {
+            innerHTML: 0,
+            textContent: '0' + suffix
+          },
+          {
+            innerHTML: target,
+            duration: duration,
+            ease: 'power2.out',
+            snap: { innerHTML: 1 },
+            onUpdate: function() {
+              counter.textContent = Math.round(this.targets()[0].innerHTML).toLocaleString() + suffix;
+            }
+          }
+        );
+      },
+      once: true
+    });
+  });
+}
+
+/**
+ * Smooth Scroll - For anchor links
+ */
+function initSmoothScroll() {
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+      
+      const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+
+      // Update URL without jumping
+      history.pushState(null, '', href);
+    });
+  });
+}
+
+/**
+ * Parallax Effect - Subtle background movement (desktop only)
+ */
+function initParallax() {
+  if (window.innerWidth < 1024) return;
+
+  const heroBgs = document.querySelectorAll('.hero-bg, .company-hero-bg');
+
+  heroBgs.forEach(bg => {
+    ScrollTrigger.create({
+      trigger: bg.parentElement,
+      start: 'top top',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const moveAmount = progress * 50; // Move at 50% scroll speed
+        bg.style.transform = `translateY(${moveAmount}px)`;
+      }
+    });
+  });
+}
+
+/**
+ * Timeline Section - Progress line and node animation with responsive handling
+ */
+function initTimeline() {
+  const timelineContainer = document.getElementById('timeline-container');
+  const timelineNode = document.getElementById('timeline-node');
+  const timelineProgress = document.getElementById('timeline-progress');
+
+  if (!timelineContainer || !timelineNode || !timelineProgress) return;
+
+  // Get ScrollTriggers for cleanup on resize
+  let timelineST, nodeST, milestoneSTs = [];
+
+  function setupTimelineAnimations() {
+    // Kill existing ScrollTriggers
+    if (timelineST) timelineST.kill();
+    if (nodeST) nodeST.kill();
+    milestoneSTs.forEach(st => st.kill());
+    milestoneSTs = [];
+
+    const isMobile = window.innerWidth < 768;
+    const startTrigger = isMobile ? 'top 85%' : 'top 80%';
+    const endTrigger = isMobile ? 'bottom 10%' : 'bottom 20%';
+
+    // Animate the progress line - extends through entire timeline
+    timelineST = gsap.to(timelineProgress, {
+      scrollTrigger: {
+        trigger: timelineContainer,
+        start: startTrigger,
+        end: endTrigger,
+        scrub: isMobile ? 1 : 2,
+      },
+      height: '100%',
+      ease: 'none',
+    });
+    
+    // Node follows scroll progress through entire timeline
+    nodeST = ScrollTrigger.create({
+      trigger: timelineContainer,
+      start: startTrigger,
+      end: endTrigger,
+      scrub: isMobile ? 1 : 2,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.set(timelineNode, {
+          top: progress * 100 + '%',
+        });
+      }
+    });
+
+    // Animate individual milestones
+    const milestones = document.querySelectorAll('.timeline-milestone');
+    milestones.forEach((milestone) => {
+      const milestoneST = ScrollTrigger.create({
+        trigger: milestone,
+        start: isMobile ? 'top 80%' : 'top 75%',
+        end: isMobile ? 'top 50%' : 'top 40%',
+        scrub: 1,
+        onUpdate: (self) => {
+          gsap.set(milestone, {
+            opacity: Math.min(1, self.progress * 2),
+            scale: 0.9 + (self.progress * 0.1)
+          });
+        }
+      });
+      milestoneSTs.push(milestoneST);
+    });
+  }
+
+  setupTimelineAnimations();
+
+  // Re-setup on resize for responsive behavior
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setupTimelineAnimations, 250);
+  });
+}
+
+// Initialize parallax on load if desktop
+if (window.innerWidth >= 1024) {
+  initParallax();
+}
+
+// Re-initialize parallax on resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth >= 1024) {
+      initParallax();
+    }
+  }, 250);
+});
+
+/**
+ * Progress Bars Animation - For expertise section
+ */
+function initProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-bar-inner');
+  
+  progressBars.forEach(bar => {
+    ScrollTrigger.create({
+      trigger: bar,
+      start: 'top 80%',
+      onEnter: () => {
+        const width = bar.getAttribute('data-width') || '0';
+        gsap.to(bar, {
+          width: width + '%',
+          duration: 1.5,
+          ease: 'power2.out'
+        });
+      },
+      once: true
+    });
+  });
+}
+
+// Initialize progress bars
+initProgressBars();
+
+// ============================================
+// WHEEL ANIMATION & STICKY SCROLL
+// ============================================
+function animateOverview() {
+  // Wheel auto-flip functionality
+  const wheelInputs = document.querySelectorAll('.radio-input input[type="radio"]');
+  let currentWheelIndex = 0;
+  
+  function flipWheel() {
+    if (wheelInputs.length === 0) return;
+    currentWheelIndex = (currentWheelIndex + 1) % wheelInputs.length;
+    wheelInputs[currentWheelIndex].checked = true;
+  }
+  
+  // Auto-flip every 3 seconds
+  setInterval(flipWheel, 3000);
+  
+  // Sticky scroll animation for text segments
+  const segments = document.querySelectorAll('.about-text-segment');
+  
+  function updateActiveSegment() {
+    if (segments.length === 0) return;
+    
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    segments.forEach((segment, index) => {
+      const segmentTop = segment.offsetTop;
+      const segmentBottom = segmentTop + segment.offsetHeight;
+      
+      if (scrollPosition >= segmentTop && scrollPosition < segmentBottom) {
+        segments.forEach(s => s.classList.remove('active'));
+        segment.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveSegment);
+  updateActiveSegment(); // Initial check
+}
+
+// Initialize wheel animation
+animateOverview();
+
+/**
+ * Labor Banner - IntersectionObserver for visibility animation
+ */
+function initLaborBanner() {
+  const laborBanner = document.querySelector('.labor-banner-section');
+  if (!laborBanner) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        laborBanner.classList.add('visible');
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(laborBanner);
+}
+
+/* =========================================
+   CLEANUP DUPLICATE FUNCTIONS
+   ========================================= */
+
+// Progress Bars Animation
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-fill');
+  
+  if (progressBars.length === 0) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const targetWidth = bar.getAttribute('data-width') || bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.transition = 'width 1.5s ease-out';
+          bar.style.width = targetWidth;
+        }, 100);
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  progressBars.forEach(bar => observer.observe(bar));
+}
+
+/**
+ * Board Carousel - Navigation for board members section
+ */
+function initBoardCarousel() {
+  const boardPrevBtns = document.querySelectorAll('#board-prev, #board-prev-mobile');
+  const boardNextBtns = document.querySelectorAll('#board-next, #board-next-mobile');
+  const boardThumbs = document.querySelectorAll('.board-thumb');
+  const boardIndicators = document.querySelectorAll('.board-indicator');
+  const boardMainImages = document.querySelectorAll('.board-main-img');
+  const boardLinkedinBtn = document.getElementById('board-linkedin-btn');
+  const boardContentElements = {
+    subtitle: document.querySelector('[data-board-subtitle]'),
+    role: document.querySelector('[data-board-role]'),
+    name: document.querySelector('[data-board-name]'),
+    desc: document.querySelector('[data-board-desc]')
+  };
+
+  if (boardThumbs.length === 0) return;
+
+  let currentSlide = 0;
+  const totalSlides = boardThumbs.length;
+
+  function updateBoardContent(index) {
+    // Update main image
+    boardMainImages.forEach((img, i) => {
+      if (i === index) {
+        img.classList.add('active');
+      } else {
+        img.classList.remove('active');
+      }
+    });
+
+    // Update thumbnails
+    boardThumbs.forEach((thumb, i) => {
+      if (i === index) {
+        thumb.classList.add('active');
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
+
+    // Update indicators
+    boardIndicators.forEach((indicator, i) => {
+      if (i === index) {
+        indicator.classList.add('active');
+      } else {
+        indicator.classList.remove('active');
+      }
+    });
+
+    // Update LinkedIn button href
+    if (boardLinkedinBtn) {
+      const targetThumb = boardThumbs[index];
+      const linkedinUrl = targetThumb.getAttribute('data-linkedin') || '#';
+      boardLinkedinBtn.href = linkedinUrl;
+    }
+
+    // Update content with fade animation
+    if (boardContentElements.subtitle && boardContentElements.role && 
+        boardContentElements.name && boardContentElements.desc) {
+      const targetThumb = boardThumbs[index];
+      const newName = targetThumb.querySelector('.board-thumb-name')?.textContent || '';
+      const newRole = targetThumb.querySelector('.board-thumb-role')?.textContent || '';
+      const newDesc = targetThumb.querySelector('.board-thumb-desc')?.textContent || '';
+
+      gsap.to([boardContentElements.name, boardContentElements.role, boardContentElements.desc], {
+        opacity: 0,
+        y: 10,
+        duration: 0.2,
+        onComplete: () => {
+          boardContentElements.name.textContent = newName;
+          boardContentElements.role.textContent = newRole;
+          boardContentElements.desc.textContent = newDesc;
+          gsap.to([boardContentElements.name, boardContentElements.role, boardContentElements.desc], {
+            opacity: 1,
+            y: 0,
+            duration: 0.3
+          });
+        }
+      });
+    }
+
+    currentSlide = index;
+  }
+
+  // Thumbnail click handlers
+  boardThumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      updateBoardContent(index);
+    });
+  });
+
+  // Indicator click handlers
+  boardIndicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      updateBoardContent(index);
+    });
+  });
+
+  // Previous button handlers
+  boardPrevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateBoardContent(newIndex);
+    });
+  });
+
+  // Next button handlers
+  boardNextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newIndex = (currentSlide + 1) % totalSlides;
+      updateBoardContent(newIndex);
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const boardSection = document.getElementById('board');
+    if (!boardSection) return;
+
+    const rect = boardSection.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (!isInView) return;
+
+    if (e.key === 'ArrowLeft') {
+      const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateBoardContent(newIndex);
+    } else if (e.key === 'ArrowRight') {
+      const newIndex = (currentSlide + 1) % totalSlides;
+      updateBoardContent(newIndex);
+    }
+  });
+}
+
+/**
+ * Company Showcase - Interactive company info box
+ */
+function initCompanyShowcase() {
+  const companyBtns = document.querySelectorAll('.company-btn');
+  const infoTitle = document.querySelector('[data-info-title]');
+  const infoCategory = document.querySelector('[data-info-category]');
+  const infoDesc = document.querySelector('[data-info-desc]');
+
+  if (companyBtns.length === 0 || !infoTitle || !infoCategory || !infoDesc) return;
+
+  // Company data
+  const companyData = {
+    samara: {
+      title: 'Samara H-VACR',
+      category: 'HVAC & Refrigeration',
+      desc: 'Leading provider of heating, ventilation, air conditioning, and refrigeration solutions delivering innovative climate control systems for residential, commercial, and industrial applications across the Kingdom.'
+    },
+    realestate: {
+      title: 'Samara Real Estate',
+      category: 'Real Estate Development',
+      desc: 'Premium real estate development company creating exceptional residential and commercial properties with modern design and sustainable building practices.'
+    },
+    sararyah: {
+      title: 'Saryryah Healthcare',
+      category: 'Healthcare Services',
+      desc: 'Comprehensive healthcare services providing quality medical care with state-of-the-art facilities and experienced healthcare professionals.'
+    },
+    parking: {
+      title: 'Samara Parking',
+      category: 'Parking Solutions',
+      desc: 'Smart parking management solutions offering efficient space utilization and seamless parking experiences for urban developments.'
+    },
+    builmix: {
+      title: 'Builmix LLC',
+      category: 'Industrial Growth',
+      desc: 'Specialty chemical additives and general construction services delivering quality-driven outcomes for industrial and civil projects across the Kingdom.'
+    },
+    mahara: {
+      title: 'Mahara Recruitment',
+      category: 'Human Resources',
+      desc: 'Professional recruitment and HR services connecting talented individuals with leading organizations across various industries.'
+    },
+    salmiya: {
+      title: 'Salmiya Oasis',
+      category: 'Hospitality & Tourism',
+      desc: 'Luxury hospitality destination offering premium accommodations and exceptional guest experiences in a serene oasis setting.'
+    }
+  };
+
+  // Button click handlers
+  companyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      companyBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      // Get company key from data attribute
+      const companyKey = btn.getAttribute('data-company');
+      const data = companyData[companyKey];
+
+      if (data) {
+        // Animate content change
+        gsap.to([infoTitle, infoCategory, infoDesc], {
+          opacity: 0,
+          y: 10,
+          duration: 0.2,
+          onComplete: () => {
+            infoTitle.textContent = data.title;
+            infoCategory.textContent = data.category;
+            infoDesc.textContent = data.desc;
+            gsap.to([infoTitle, infoCategory, infoDesc], {
+              opacity: 1,
+              y: 0,
+              duration: 0.3
+            });
+          }
+        });
+      }
+    });
+  });
+
+  // Set first button as active by default
+  if (companyBtns.length > 0) {
+    companyBtns[0].classList.add('active');
+  }
+}
+
+/**
+ * Featured Projects Filter Functionality
+ */
+function initFeaturedProjectsFilter() {
+  const filterBtns = document.querySelectorAll('.fp-filter-btn');
+  const smallCards = document.querySelectorAll('.fp-card-small');
+  const mainCardContainer = document.querySelector('.fp-card-main-container');
+  const mainCard = document.querySelector('.fp-card-main');
+  
+  if (filterBtns.length === 0 || smallCards.length === 0 || !mainCard) return;
+  
+  // Data for each category - extracted from company pages
+  const projectData = {
+    'hospitality': {
+      image: 'webp_images/salmiya4.webp',
+      category: 'Hospitality',
+      title: 'Al Salmiya Oasis',
+      description: 'Resort development featuring premium leisure facilities, events spaces, and hospitality services.',
+      link: 'salmiya-oasis.html'
+    },
+    'real-estate': {
+      image: 'webp_images/construction.webp',
+      category: 'Real Estate',
+      title: 'Residential Development',
+      description: 'Developing a modern residential communities designed for contemporary living.',
+      link: 'samara-real-estate.html'
+    },
+    'hvac': {
+      image: 'webp_images/HVAC-hero.webp',
+      category: 'HVAC',
+      title: 'Commercial Climate Control',
+      description: 'Advanced HVAC systems for large-scale commercial facilities.',
+      link: 'samara-H-VACR.html'
+    },
+    'parking': {
+      image: 'webp_images/SPS-Project.webp',
+      category: 'Smart Parking',
+      title: 'Automated Parking System',
+      description: 'Intelligent parking management for urban environments.',
+      link: 'samara-parking.html'
+    },
+    'manufacturing': {
+      image: 'webp_images/builmix_powders.webp',
+      category: 'Manufacturing',
+      title: 'Industrial Production Hub',
+      description: 'State-of-the-art manufacturing facilities for industrial applications.',
+      link: 'builmix.html'
+    },
+    'healthcare': {
+      image: 'webp_images/healthcare.webp',
+      category: 'Healthcare',
+      title: 'Medical Center Complex',
+      description: 'Comprehensive healthcare facilities with modern medical technology.',
+      link: 'saryryah-healthcare.html'
+    },
+    'construction': {
+      image: 'webp_images/Diversification-Era.webp',
+      category: 'Construction',
+      title: 'Infrastructure Development',
+      description: 'Large-scale construction projects supporting national development.',
+      link: '#'
+    }
+  };
+  
+  // Function to update main card content
+  function updateMainCard(category) {
+    const data = projectData[category];
+    if (!data) return;
+    
+    const imgEl = mainCard.querySelector('.fp-main-image');
+    const categoryLabelEls = mainCard.querySelectorAll('.fp-main-category-label, .fp-main-category');
+    const titleEl = mainCard.querySelector('.fp-main-title');
+    const descEl = mainCard.querySelector('.fp-main-description');
+    const linkEl = mainCard.querySelector('.fp-main-link');
+    
+    if (imgEl) imgEl.src = data.image;
+    if (imgEl) imgEl.alt = data.title;
+    
+    categoryLabelEls.forEach(el => {
+      el.textContent = data.category;
+    });
+    
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.description;
+    if (linkEl) linkEl.href = data.link;
+    
+    // Update data-category attribute
+    mainCard.setAttribute('data-category', category);
+    
+    // Animate the update
+    gsap.fromTo(mainCard,
+      { opacity: 0.5 },
+      { opacity: 1, duration: 0.4, ease: 'power2.out' }
+    );
+  }
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      const filterValue = btn.getAttribute('data-filter');
+      
+      // Update main card if not "all"
+      if (filterValue !== 'all' && projectData[filterValue]) {
+        updateMainCard(filterValue);
+      } else if (filterValue === 'all') {
+        // Reset to default (hospitality)
+        updateMainCard('hospitality');
+      }
+      
+      // Filter small cards
+      smallCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'block';
+          gsap.fromTo(card, 
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+          );
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+// Initialize everything when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    animateOverview();
+    animateProgressBars();
+    initFeaturedProjectsFilter();
+    lucide.createIcons();
+  });
+} else {
+  initPreloader();
+  animateOverview();
+  animateProgressBars();
+  initFeaturedProjectsFilter();
+  lucide.createIcons();
+}

@@ -3,8 +3,8 @@ name: Deploy Multi-Branch Pages
 on:
   push:
     branches:
-      - main                     # Your main branch
-      - your-alternative-branch  # Replace with your actual alternative branch name
+      - main
+      - arabic-first-multilingual-site-architecture-f6fe4
 
 permissions:
   contents: read
@@ -19,28 +19,35 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps: deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # 1. Clear out and initialize the target build directory
+      - name: Create Workspace Directories
+        run: mkdir -p combined-site/arabic-version
+
+      # 2. Safely checkout main branch code into the root of combined-site
       - name: Checkout Main
         uses: actions/checkout@v4
         with:
           ref: main
-          path: root-site
+          path: combined-site
 
-      - name: Checkout Alternative Branch
+      # 3. Safely checkout alternative branch code into the subfolder
+      - name: Checkout Arabic Architecture Branch
         uses: actions/checkout@v4
         with:
-          ref: your-alternative-branch # Replace with your actual alternative branch name
-          path: root-site/alternative-version # This creates the subfolder
+          ref: arabic-first-multilingual-site-architecture-f6fe4
+          path: combined-site/arabic-version
 
+      # 4. Standard Pages deployment steps
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'root-site'
+          path: 'combined-site'
 
       - name: Deploy to GitHub Pages
         id: deployment

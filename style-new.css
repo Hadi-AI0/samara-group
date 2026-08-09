@@ -5,6 +5,11 @@
 
 /* CSS Variables - Design Tokens */
 :root {
+  /* Directional Variables for RTL/LTR Support */
+  --start: right;
+  --end: left;
+  --transform-direction: -1;
+  
   /* Color Palette */
   --color-navy: #0f2040;
   --color-navy-dark: #0a1528;

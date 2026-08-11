@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سريرية للرعاية الصحية | مجموعة سمارى</title>
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://samara.co.com/saryryah-healthcare.html" />
+  <link rel="canonical" href="https://سمارى.co.com/saryryah-healthcare.html" />
   
   <!-- Alternate Language Versions -->
-  <link rel="alternate" hreflang="ar" href="https://samara.co.com/saryryah-healthcare.html" />
-  <link rel="alternate" hreflang="en" href="https://samara.co.com/en/saryryah-healthcare.html" />
-  <link rel="alternate" hreflang="x-default" href="https://samara.co.com/saryryah-healthcare.html" />
+  <link rel="alternate" hreflang="ar" href="https://سمارى.co.com/saryryah-healthcare.html" />
+  <link rel="alternate" hreflang="en" href="https://سمارى.co.com/en/saryryah-healthcare.html" />
+  <link rel="alternate" hreflang="x-default" href="https://سمارى.co.com/saryryah-healthcare.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,31 +23,75 @@
     
     <link rel="stylesheet" href="../style-new.css">
     
+
+  <style>
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    .lang-switcher:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .navbar.scrolled .lang-switcher {
+      border-color: rgba(29, 79, 145, 0.3);
+    }
+    
+    .navbar.scrolled .lang-switcher:hover {
+      background: rgba(29, 79, 145, 0.1);
+      border-color: rgba(29, 79, 145, 0.5);
+    }
+    
+    @media (max-width: 768px) {
+      .lang-switcher {
+        margin: 10px 20px;
+      }
+    }
+  </style>
+
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
-                <img src="samara-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
+                <img src="سمارى-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
             </a>
             <ul class="nav-menu">
                 <li><a href="../index.html#about" class="nav-link">من نحن</a></li>
                 <li class="nav-dropdown">
                     <a href="#" class="nav-link dropdown-toggle">الشركات <span class="dropdown-arrow">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a></li>
-                        <li><a href="../samara-parking.html">سمارى لمواقف السيارات</a></li>
-                        <li><a href="../builmix.html">بيلد ميكس السعودية</a></li>
-                        <li><a href="../samara-real-estate.html">Samara العقارات</a></li>
+                        <li><a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a></li>
+                        <li><a href="../سمارى-parking.html">سمارى لمواقف السيارات</a></li>
+                        <li><a href="../بيلميكس.html">بيلميكس السعودية</a></li>
+                        <li><a href="../سمارى-real-estate.html">سمارى العقارات</a></li>
                         <li><a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a></li>
                         <li><a href="../mahara-recruitment.html">مهارة للتوظيف</a></li>
-                        <li><a href="../salmiya-oasis.html">واحة السلمية</a></li>
+                        <li><a href="../سالمية-oasis.html">واحة سالمية</a></li>
                     </ul>
                 </li>
                 <li><a href="../index.html#contact" class="nav-link">اتصل بنا</a></li>
             </ul>
-            <button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
+            
+      <!-- Language Switcher -->
+      <button class="lang-switcher" id="lang-switcher" aria-label="التبديل إلى الإنجليزية" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>EN</span>
+      </button>
+<button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
                 <span class="hamburger"></span>
             </button>
         </div>
@@ -60,13 +104,13 @@
         <div class="mobile-dropdown">
             <a href="#" class="mobile-nav mobile-dropdown-toggle">الشركات <span class="dropdown-arrow">▼</span></a>
             <div class="mobile-dropdown-content">
-                <a href="../samara-H-VACR.html" class="mobile-subnav">سمارى للتكييف والتهوية والتبريد</a>
-                <a href="../samara-parking.html" class="mobile-subnav">سمارى لمواقف السيارات</a>
-                <a href="../builmix.html" class="mobile-subnav">بيلد ميكس السعودية</a>
-                <a href="../samara-real-estate.html" class="mobile-subnav">Samara العقارات</a>
+                <a href="../سمارى-تبريد و تكييف.html" class="mobile-subnav">سمارى للتكييف والتهوية والتبريد</a>
+                <a href="../سمارى-parking.html" class="mobile-subnav">سمارى لمواقف السيارات</a>
+                <a href="../بيلميكس.html" class="mobile-subnav">بيلميكس السعودية</a>
+                <a href="../سمارى-real-estate.html" class="mobile-subnav">سمارى العقارات</a>
                 <a href="../saryryah-healthcare.html" class="mobile-subnav">سريرية للرعاية الصحية</a>
                 <a href="../mahara-recruitment.html" class="mobile-subnav">مهارة للتوظيف</a>
-                <a href="../salmiya-oasis.html" class="mobile-subnav">واحة السلمية</a>
+                <a href="../سالمية-oasis.html" class="mobile-subnav">واحة سالمية</a>
             </div>
         </div>
         <a href="../index.html#contact" class="mobile-nav">اتصل بنا</a>
@@ -81,7 +125,7 @@
         <div class="hero-content-wrapper">
             <div class="hero-badge animate-fade-up"><span>شركة من مجموعة سمارى</span></div>
             <h1 class="hero-title animate-fade-up">سريرية للرعاية الصحية</h1>
-            <p class="hero-subtitle animate-fade-up">Providing accessible, high-quality medical services across Saudi Arabia.</p>
+            <p class="hero-subtitle animate-fade-up">تقديم خدمات طبية عالية الجودة وسهلة الوصول عبر المملكة العربية السعودية.</p>
             <div class="hero-metrics animate-fade-up">
                 <div class="hero-metric"><h3><span class="counter" data-target="5">0</span>+</h3><p>Clinics</p></div>
                 <div class="hero-metric"><h3><span class="counter" data-target="50">0</span>+</h3><p>Specialists</p></div>
@@ -103,12 +147,12 @@
                 </div>
                 <div class="section-content animate-fade-up">
                     <h2 class="section-title">من نحن سريرية للرعاية الصحية</h2>
-                    <p class="section-text">سريرية للرعاية الصحية is a leading healthcare provider within the Samara Group, dedicated to delivering comprehensive medical services that improve community health and well-being across Saudi Arabia. Our network of clinics and specialized centers offers accessible, patient-centered care with a focus on quality outcomes.</p>
-                    <p class="section-text">We bring together experienced physicians, nurses, and healthcare professionals who are committed to excellence in diagnosis, treatment, and preventive care. Our facilities are equipped with modern medical technology to ensure accurate diagnostics and effective treatments for diverse health conditions.</p>
+                    <p class="section-text">سريرية للرعاية الصحية هي مزود رعاية صحية رائد ضمن مجموعة سمارى، مكرس لتقديم خدمات طبية شاملة تحسن صحة ورفاهية المجتمع عبر المملكة العربية السعودية. شبكتنا من العيادات والمراكز المتخصصة تقدم رعاية سهلة الوصول تركز على المريض مع التركيز على نتائج الجودة.</p>
+                    <p class="section-text">نجمع أطباء وممرضين ومحترفين في الرعاية الصحية ذوي خبرة ملتزمون بالتميز في التشخيص والعلاج والرعاية الوقائية. مرافقنا مجهزة بتكنولوجيا طبية حديثة لضمان تشخيص دقيق وعلاجات فعالة لمختلف الحالات الصحية.</p>
                     <div class="stats-grid">
                         <div class="stat-item"><h3 class="counter" data-target="5">0</h3><p>Clinics</p></div>
-                        <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>Medical Specialists</p></div>
-                        <div class="stat-item"><h3 class="counter" data-target="98">0</h3><p>% Patient Satisfaction</p></div>
+                        <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>أخصائيون طبيون</p></div>
+                        <div class="stat-item"><h3 class="counter" data-target="98">0</h3><p>% رضا المرضى</p></div>
                     </div>
                 </div>
             </div>
@@ -120,27 +164,27 @@
         <div class="container">
             <div class="section-header animate-fade-up">
                 <h2 class="section-title">خدماتنا</h2>
-                <p class="section-subtitle">Comprehensive healthcare solutions</p>
+                <p class="section-subtitle">حلول رعاية صحية شاملة</p>
             </div>
             <div class="services-grid">
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="stethoscope"></i></div>
                     <h3>Primary Care</h3>
-                    <p>Comprehensive family medicine services including routine check-ups, preventive care, and chronic disease management.</p>
+                    <p>خدمات طب الأسرة الشاملة بما في ذلك الفحوصات الروتينية والرعاية الوقائية وإدارة الأمراض المزمنة.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="heart-pulse"></i></div>
                     <h3>Specialized Clinics</h3>
-                    <p>Expert care in cardiology, orthopedics, pediatrics, gynecology, dermatology, and other medical specialties.</p>
+                    <p>رعاية خبيرة في أمراض القلب وجراحة العظام وطب الأطفال وأمراض النساء والجلدية وغيرها من التخصصات الطبية.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="microscope"></i></div>
-                    <h3>Diagnostic Services</h3>
+                    <h3>خدمات التشخيص</h3>
                     <p>Advanced laboratory testing, radiology, ultrasound, and imaging services for accurate diagnosis.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="home"></i></div>
-                    <h3>Home Healthcare</h3>
+                    <h3>الرعاية الصحية المنزلية</h3>
                     <p>Professional nursing care, physiotherapy, and medical support delivered in the comfort of your home.</p>
                 </div>
                 <div class="service-card animate-fade-up">
@@ -161,8 +205,8 @@
     <section class="section section-light">
         <div class="container">
             <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">Healthcare delivery by the numbers</p>
+                <h2 class="section-title">أثرنا</h2>
+                <p class="section-subtitle">تقديم الرعاية الصحية بالأرقام</p>
             </div>
             <div class="metrics-grid">
                 <div class="metric-card animate-fade-up">
@@ -215,7 +259,7 @@
                     <img src="https://images.unsplash.com/photo-1758691462860-b1b9532c7394?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Corporate Wellness Program">
                     <div class="showcase-content">
                         <h3>Corporate Wellness Program</h3>
-                        <p>Comprehensive occupational health services partnering with 50+ companies for employee wellbeing.</p>
+                        <p>خدمات الصحة المهنية الشاملة بالشراكة مع أكثر من 50 شركة لرفاهية الموظفين.</p>
                     </div>
                 </div>
             </div>
@@ -227,14 +271,14 @@
         <div class="container">
             <div class="section-header animate-fade-up">
                 <h2 class="section-title">اتصل بنا Us</h2>
-                <p class="section-subtitle">Get in touch with our team</p>
+                <p class="section-subtitle">تواصل مع فريقنا</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="map-pin"></i></div>
                     <div class="contact-info">
                         <h4>Office Address</h4>
-                        <p>سريرية للرعاية الصحية<br>Saudi Arabia</p>
+                        <p>سريرية للرعاية الصحية<br>المملكة العربية السعودية</p>
                     </div>
                 </div>
                 <div class="contact-item animate-fade-up">
@@ -248,7 +292,7 @@
                     <div class="contact-icon"><i data-lucide="mail"></i></div>
                     <div class="contact-info">
                         <h4>Email Us</h4>
-                        <p>info@samaragroup.com.sa</p>
+                        <p>info@سمارىgroup.com.sa</p>
                     </div>
                 </div>
             </div>
@@ -258,12 +302,12 @@
     <!-- Website Link Section -->
     <section class="company-section" style="text-align: center;">
         <div class="container">
-            <span class="section-label">Visit Our Website</span>
+            <span class="section-label">زر موقعنا الإلكتروني</span>
             <h2 class="section-title">Explore More</h2>
             <div class="section-line"></div>
-            <a href="https://samaragroup.com.sa/saryryah-healthcare/" target="_blank" rel="noopener noreferrer" class="website-btn">
+            <a href="https://سمارىgroup.com.sa/saryryah-healthcare/" target="_blank" rel="noopener noreferrer" class="website-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Visit سريرية للرعاية الصحية Website
+                زيارة موقع سريرية للرعاية الصحية
             </a>
         </div>
     </section>
@@ -273,33 +317,108 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="samara-logo-group.png" alt="مجموعة سمارى">
+                    <img src="سمارى-logo-group.png" alt="مجموعة سمارى">
                     <p>Building the future together.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="../index.html">Home</a>
+                    <h4>روابط سريعة</h4>
+                    <a href="../index.html">الرئيسية</a>
                     <a href="../index.html#about">من نحن</a>
                     <a href="../index.html#companies">الشركات</a>
                     <a href="../index.html#contact">اتصل بنا</a>
                 </div>
                 <div class="footer-companies">
                     <h4>شركاتنا</h4>
-                    <a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a>
-                    <a href="../samara-parking.html">سمارى لمواقف السيارات</a>
-                    <a href="../builmix.html">بيلد ميكس السعودية</a>
-                    <a href="../samara-real-estate.html">Samara العقارات</a>
+                    <a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a>
+                    <a href="../سمارى-parking.html">سمارى لمواقف السيارات</a>
+                    <a href="../بيلميكس.html">بيلميكس السعودية</a>
+                    <a href="../سمارى-real-estate.html">سمارى العقارات</a>
                     <a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a>
                     <a href="../mahara-recruitment.html">مهارة للتوظيف</a>
-                    <a href="../salmiya-oasis.html">واحة السلمية</a>
+                    <a href="../سالمية-oasis.html">واحة سالمية</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Samara Group. All rights reserved.</p>
+                <p>&copy; 2024 سمارى Group. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
   <script src="script-new.js"></script>
+
+  <script>
+    // Language switching functionality
+    function switchLanguage(lang) {
+      const currentPath = window.location.pathname;
+      const currentHost = window.location.host;
+      const protocol = window.location.protocol;
+      
+      // Get the filename from the path
+      let fileName = currentPath.split('/').pop() || 'index.html';
+      
+      // Handle root path
+      if (currentPath === '/' || currentPath === '') {
+        fileName = 'index.html';
+      }
+      
+      if (lang === 'en') {
+        // Switching to English
+        if (currentPath.includes('/en/')) {
+          // Already in English folder, stay on same page
+          return;
+        }
+        
+        // Remove any leading slash for proper path construction
+        let cleanFileName = fileName.startsWith('/') ? fileName.substring(1) : fileName;
+        
+        // Navigate to English version
+        window.location.href = protocol + '//' + currentHost + '/en/' + cleanFileName;
+      } else {
+        // Switching to Arabic
+        if (!currentPath.includes('/en/')) {
+          // Already in Arabic (root), stay on same page
+          return;
+        }
+        
+        // Remove /en/ prefix to get Arabic version
+        let arabicFileName = fileName;
+        if (currentPath.includes('/en/')) {
+          // Extract just the filename without /en/
+          const parts = currentPath.split('/');
+          arabicFileName = parts[parts.length - 1] || 'index.html';
+        }
+        
+        // Navigate to Arabic version (root)
+        window.location.href = protocol + '//' + currentHost + '/' + arabicFileName;
+      }
+    }
+    
+    // Auto-redirect based on user's language preference when entering root
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const storedLang = localStorage.getItem('preferredLanguage');
+      
+      // Only auto-redirect on root index page if no language is stored
+      if ((currentPath === '/' || currentPath === '' || currentPath === '/index.html') && !storedLang) {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('ar')) {
+          // User prefers Arabic, stay on root
+          localStorage.setItem('preferredLanguage', 'ar');
+        } else if (userLang && userLang.startsWith('en')) {
+          // User prefers English, redirect to /en/
+          localStorage.setItem('preferredLanguage', 'en');
+          window.location.href = '/en/';
+        }
+      }
+      
+      // Store current language preference
+      if (currentPath.includes('/en/')) {
+        localStorage.setItem('preferredLanguage', 'en');
+      } else {
+        localStorage.setItem('preferredLanguage', 'ar');
+      }
+    });
+  </script>
+
 </body>
 </html>

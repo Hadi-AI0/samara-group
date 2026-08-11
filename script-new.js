@@ -6,6 +6,93 @@
 // Initialize GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+// ============================================
+// LANGUAGE SWITCHER FUNCTIONALITY
+// ============================================
+function switchLanguage(lang) {
+  const currentPath = window.location.pathname;
+  const currentHost = window.location.host;
+  const protocol = window.location.protocol;
+  
+  // Get the filename from the path
+  let fileName = currentPath.split('/').pop() || 'index.html';
+  
+  // Handle root path
+  if (currentPath === '/' || currentPath === '') {
+    fileName = 'index.html';
+  }
+  
+  if (lang === 'en') {
+    // Switching to English
+    if (currentPath.includes('/en/')) {
+      // Already in English folder, stay on same page
+      return;
+    }
+    
+    // Remove any leading slash for proper path construction
+    let cleanFileName = fileName.startsWith('/') ? fileName.substring(1) : fileName;
+    
+    // Navigate to English version
+    window.location.href = protocol + '//' + currentHost + '/en/' + cleanFileName;
+  } else {
+    // Switching to Arabic
+    if (!currentPath.includes('/en/')) {
+      // Already in Arabic (root), stay on same page
+      return;
+    }
+    
+    // Remove /en/ prefix to get Arabic version
+    let arabicFileName = fileName;
+    if (currentPath.includes('/en/')) {
+      // Extract just the filename without /en/
+      const parts = currentPath.split('/');
+      arabicFileName = parts[parts.length - 1] || 'index.html';
+    }
+    
+    // Navigate to Arabic version (root)
+    window.location.href = protocol + '//' + currentHost + '/' + arabicFileName;
+  }
+}
+
+// Auto-redirect based on user's language preference when entering root
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPath = window.location.pathname;
+  const storedLang = localStorage.getItem('preferredLanguage');
+  
+  // Only auto-redirect on root index page if no language is stored
+  if ((currentPath === '/' || currentPath === '' || currentPath === '/index.html') && !storedLang) {
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang && userLang.startsWith('ar')) {
+      // User prefers Arabic, stay on root
+      localStorage.setItem('preferredLanguage', 'ar');
+    } else if (userLang && userLang.startsWith('en')) {
+      // User prefers English, redirect to /en/
+      localStorage.setItem('preferredLanguage', 'en');
+      window.location.href = '/en/';
+    }
+  }
+  
+  // Store current language preference
+  if (currentPath.includes('/en/')) {
+    localStorage.setItem('preferredLanguage', 'en');
+  } else {
+    localStorage.setItem('preferredLanguage', 'ar');
+  }
+});
+
+// Language switcher button event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  const langSwitchers = document.querySelectorAll('#lang-switcher');
+  langSwitchers.forEach(switcher => {
+    switcher.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetLang = this.getAttribute('data-lang') || 
+                        (this.textContent.includes('English') ? 'en' : 'ar');
+      switchLanguage(targetLang);
+    });
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize preloader
   initPreloader();

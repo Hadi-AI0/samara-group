@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سمارى لمواقف السيارات | مجموعة سمارى</title>
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://samara.co.com/samara-parking.html" />
+  <link rel="canonical" href="https://سمارى.co.com/سمارى-parking.html" />
   
   <!-- Alternate Language Versions -->
-  <link rel="alternate" hreflang="ar" href="https://samara.co.com/samara-parking.html" />
-  <link rel="alternate" hreflang="en" href="https://samara.co.com/en/samara-parking.html" />
-  <link rel="alternate" hreflang="x-default" href="https://samara.co.com/samara-parking.html" />
+  <link rel="alternate" hreflang="ar" href="https://سمارى.co.com/سمارى-parking.html" />
+  <link rel="alternate" hreflang="en" href="https://سمارى.co.com/en/سمارى-parking.html" />
+  <link rel="alternate" hreflang="x-default" href="https://سمارى.co.com/سمارى-parking.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,31 +23,75 @@
     
     <link rel="stylesheet" href="../style-new.css">
     
+
+  <style>
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    .lang-switcher:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .navbar.scrolled .lang-switcher {
+      border-color: rgba(29, 79, 145, 0.3);
+    }
+    
+    .navbar.scrolled .lang-switcher:hover {
+      background: rgba(29, 79, 145, 0.1);
+      border-color: rgba(29, 79, 145, 0.5);
+    }
+    
+    @media (max-width: 768px) {
+      .lang-switcher {
+        margin: 10px 20px;
+      }
+    }
+  </style>
+
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
-                <img src="samara-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
+                <img src="سمارى-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
             </a>
             <ul class="nav-menu">
                 <li><a href="../index.html#about" class="nav-link">من نحن</a></li>
                 <li class="nav-dropdown">
                     <a href="#" class="nav-link dropdown-toggle">الشركات <span class="dropdown-arrow">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a></li>
-                        <li><a href="../samara-parking.html">سمارى لمواقف السيارات</a></li>
-                        <li><a href="../builmix.html">بيلد ميكس السعودية</a></li>
-                        <li><a href="../samara-real-estate.html">Samara العقارات</a></li>
+                        <li><a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a></li>
+                        <li><a href="../سمارى-parking.html">سمارى لمواقف السيارات</a></li>
+                        <li><a href="../بيلميكس.html">بيلميكس السعودية</a></li>
+                        <li><a href="../سمارى-real-estate.html">سمارى العقارات</a></li>
                         <li><a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a></li>
                         <li><a href="../mahara-recruitment.html">مهارة للتوظيف</a></li>
-                        <li><a href="../salmiya-oasis.html">واحة السلمية</a></li>
+                        <li><a href="../سالمية-oasis.html">واحة سالمية</a></li>
                     </ul>
                 </li>
                 <li><a href="../index.html#contact" class="nav-link">اتصل بنا</a></li>
             </ul>
-            <button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
+            
+      <!-- Language Switcher -->
+      <button class="lang-switcher" id="lang-switcher" aria-label="التبديل إلى الإنجليزية" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>EN</span>
+      </button>
+<button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
                 <span class="hamburger"></span>
             </button>
         </div>
@@ -60,13 +104,13 @@
         <div class="mobile-dropdown">
             <span class="mobile-dropdown-toggle">الشركات <span class="dropdown-arrow">&#9662;</span></span>
             <ul class="mobile-dropdown-menu">
-                <li><a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a></li>
-                <li><a href="../samara-parking.html">سمارى لمواقف السيارات Solutions</a></li>
-                <li><a href="../builmix.html">بيلد ميكس السعودية</a></li>
-                <li><a href="../samara-real-estate.html">Samara العقارات</a></li>
+                <li><a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a></li>
+                <li><a href="../سمارى-parking.html">سمارى لمواقف السيارات</a></li>
+                <li><a href="../بيلميكس.html">بيلميكس السعودية</a></li>
+                <li><a href="../سمارى-real-estate.html">سمارى العقارات</a></li>
                 <li><a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a></li>
                 <li><a href="../mahara-recruitment.html">مهارة للتوظيف</a></li>
-                <li><a href="../salmiya-oasis.html">واحة السلمية</a></li>
+                <li><a href="../سالمية-oasis.html">واحة سالمية</a></li>
             </ul>
         </div>
         <a href="../index.html#contact" class="mobile-nav">اتصل بنا</a>
@@ -75,21 +119,21 @@
     <!-- HERO SECTION -->
     <section class="hero company-hero">
         <div class="company-hero-bg">
-            <img src="https://images.unsplash.com/photo-1615042620349-dd4c03be4574?q=80&w=1466&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Samara Parking Solutions">
+            <img src="https://images.unsplash.com/photo-1615042620349-dd4c03be4574?q=80&w=1466&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="حلول سمارى لمواقف السيارات">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
             <div class="hero-badge animate-fade-up"><span>شركة من مجموعة سمارى</span></div>
-            <h1 class="hero-title animate-fade-up">سمارى لمواقف السيارات Solutions</h1>
-            <p class="hero-subtitle animate-fade-up">Advanced automatic parking systems and smart solutions for modern urban challenges across Saudi Arabia.</p>
+            <h1 class="hero-title animate-fade-up">حلول سمارى لمواقف السيارات</h1>
+            <p class="hero-subtitle animate-fade-up">أنظمة مواقف سيارات أوتوماتيكية متقدمة وحلول ذكية للتحديات الحضرية الحديثة في جميع أنحاء المملكة العربية السعودية.</p>
             <div class="hero-metrics animate-fade-up">
-                <div class="hero-metric"><h3><span class="counter" data-target="100">0</span>+</h3><p>المشاريع Completed</p></div>
+                <div class="hero-metric"><h3><span class="counter" data-target="100">0</span>+</h3><p>مشروع مكتمل</p></div>
                 <div class="hero-metric"><h3><span class="counter" data-target="5000">0</span>+</h3><p>موقف سيارات</p></div>
-                <div class="hero-metric"><h3><span class="counter" data-target="100">0</span>%</h3><p>Client Satisfaction</p></div>
+                <div class="hero-metric"><h3><span class="counter" data-target="100">0</span>%</h3><p>رضا العملاء</p></div>
             </div>
             <div class="hero-buttons animate-fade-up">
-                <a href="#services" class="btn btn-primary">Our Solutions</a>
-                <a href="#contact" class="btn btn-outline">اتصل بنا Us</a>
+                <a href="#services" class="btn btn-primary">حلولنا</a>
+                <a href="#contact" class="btn btn-outline">اتصل بنا</a>
             </div>
         </div>
     </section>
@@ -99,7 +143,7 @@
         <div class="container">
             <div class="section-grid">
                 <div class="section-image animate-fade-up">
-                    <img src="webp_images/rotary_parking copy.webp" alt="Samara Parking Technology">
+                    <img src="webp_images/rotary_parking copy.webp" alt="سمارى Parking Technology">
                 </div>
                 <div class="section-content animate-fade-up">
                     <h2 class="section-title">من نحن - سمارى لمواقف السيارات</h2>
@@ -162,12 +206,12 @@
         <div class="container">
             <div class="section-grid">
                 <div class="section-content animate-fade-up">
-                    <h2 class="section-title">Research & Development</h2>
-                    <p class="section-text">Our R&D systems are administered by experienced and scientifically-competent engineers in the automatic parking engineering field. We continuously innovate to provide advanced and suitable solutions for the various needs of developing communities.</p>
-                    <p class="section-text">We have achieved international accreditation of our automatic units via CE certification according to EC machinery directive 2006/42/CE, guaranteeing the best automatic units aligning with the most accurate international standards.</p>
+                    <h2 class="section-title">البحث والتطوير</h2>
+                    <p class="section-text">يتم إدارة أنظمة البحث والتطوير الخاصة بنا من قبل مهندسين ذوي خبرة وكفاءة علمية في مجال هندسة مواقف السيارات الأوتوماتيكية. نحن نبتكر باستمرار لتقديم حلول متقدمة ومناسبة للاحتياجات المختلفة للمجتمعات النامية.</p>
+                    <p class="section-text">لقد حققنا الاعتماد الدولي لوحداتنا الأوتوماتيكية عبر شهادة CE وفقًا لتوجيهات الآلات الأوروبية 2006/42/CE، مما يضمن أفضل الوحدات الأوتوماتيكية المتوافقة مع المعايير الدولية الأكثر دقة.</p>
                 </div>
                 <div class="section-image animate-fade-up">
-                    <img src="webp_images/samara-pickup-lift.webp" alt="Research and Development">
+                    <img src="webp_images/سمارى-pickup-lift.webp" alt="البحث والتطوير">
                 </div>
             </div>
         </div>
@@ -177,13 +221,13 @@
     <section class="section section-dark">
         <div class="container">
             <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">Delivering value through innovation</p>
+                <h2 class="section-title">أثرنا</h2>
+                <p class="section-subtitle">تقديم القيمة من خلال الابتكار</p>
             </div>
             <div class="stats-grid">
-                <div class="stat-item"><h3 class="counter" data-target="100+">0</h3><p>المشاريع Completed</p></div>
+                <div class="stat-item"><h3 class="counter" data-target="100+">0</h3><p>مشروع مكتمل</p></div>
                 <div class="stat-item"><h3 class="counter" data-target="15000">0</h3><p>موقف سيارات</p></div>
-                <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>Partner Organizations</p></div>
+                <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>منظمات شريكة</p></div>
             </div>
         </div>
     </section>
@@ -193,28 +237,28 @@
         <div class="container">
             <div class="section-header animate-fade-up">
                 <h2 class="section-title">المشاريع المميزة</h2>
-                <p class="section-subtitle">Showcasing our parking solutions</p>
+                <p class="section-subtitle">استعراض حلولنا لمواقف السيارات</p>
             </div>
             <div class="showcase-grid">
                 <div class="showcase-card animate-fade-up">
-                    <img src="webp_images/car-elevator.webp" alt="Car Elevator System">
+                    <img src="webp_images/car-elevator.webp" alt="نظام مصعد السيارات">
                     <div class="showcase-content">
-                        <h3>Multi-Level Car Elevator - Dammam</h3>
-                        <p>Advanced car elevator system for a commercial complex, featuring automated vehicle storage and retrieval with capacity for 200+ vehicles.</p>
+                        <h3>مصعد سيارات متعدد المستويات - الدمام</h3>
+                        <p>نظام مصعد سيارات متقدم لمجمع تجاري، يتميز بتخزين واسترجاع المركبات الآلي بسعة لأكثر من 200 مركبة.</p>
                     </div>
                 </div>
                 <div class="showcase-card animate-fade-up">
-                    <img src="webp_images/oarking-capacity.webp" alt="Rotary Parking System">
+                    <img src="webp_images/oarking-capacity.webp" alt="نظام مواقف دوار">
                     <div class="showcase-content">
-                        <h3>Rotary Parking Solution - Riyadh</h3>
-                        <p>Innovative rotary parking system maximizing space efficiency in urban areas, providing 48 parking spaces in a compact footprint.</p>
+                        <h3>حل مواقف دوار - الرياض</h3>
+                        <p>نظام مواقف دوار مبتكر يزيد من كفاءة المساحة في المناطق الحضرية، يوفر 48 موقف سيارات في مساحة مدمجة.</p>
                     </div>
                 </div>
                 <div class="showcase-card animate-fade-up">
-                    <img src="webp_images/multi-level-parking.webp" alt="Multi-Level Parking Facility">
+                    <img src="webp_images/multi-level-parking.webp" alt="مرفق مواقف متعدد المستويات">
                     <div class="showcase-content">
-                        <h3>Automated Multi-Level Facility - Jeddah</h3>
-                        <p>State-of-the-art multi-level automated parking facility with smart access control and real-time space monitoring for a mixed-use development.</p>
+                        <h3>مرفق مواقف آلي متعدد المستويات - جدة</h3>
+                        <p>مرفق مواقف آلي متعدد المستويات حديث مع نظام تحكم ذكي في الوصول ومراقبة المساحات في الوقت الفعلي لتطوير متعدد الاستخدامات.</p>
                     </div>
                 </div>
             </div>
@@ -225,28 +269,28 @@
     <section id="contact" class="section section-light">
         <div class="container">
             <div class="section-header animate-fade-up">
-                <h2 class="section-title">اتصل بنا Us</h2>
-                <p class="section-subtitle">Get in touch with our team</p>
+                <h2 class="section-title">اتصل بنا</h2>
+                <p class="section-subtitle">تواصل مع فريقنا</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="map-pin"></i></div>
                     <div class="contact-info">
-                        <h4>Office Address</h4>
-                        <p>Al-Olia Dist., Consumer Oasis Complex-2nd Floor<br>Al-Khobar 31952<br>Saudi Arabia</p>
+                        <h4>عنوان المكتب</h4>
+                        <p>حي العلياء، مجمع واحة المستهلك - الطابق الثاني<br>الخبر 31952<br>المملكة العربية السعودية</p>
                     </div>
                 </div>
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="phone"></i></div>
                     <div class="contact-info">
-                        <h4>Call Us</h4>
+                        <h4>اتصل بنا</h4>
                         <p>+966 13 3301222</p>
                     </div>
                 </div>
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="mail"></i></div>
                     <div class="contact-info">
-                        <h4>Email Us</h4>
+                        <h4>راسلنا عبر البريد</h4>
                         <p>Info@comparking.com</p>
                     </div>
                 </div>
@@ -258,13 +302,13 @@
     <section class="company-link">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Visit Our Website</span>
-                <h2 class="section-title">Explore More</h2>
+                <span class="section-label">زيارة موقعنا الإلكتروني</span>
+                <h2 class="section-title">استكشف المزيد</h2>
                 <div class="section-line"></div>
             </div>
-            <a href="https://www.samaraparking.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <a href="https://www.سمارىparking.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Visit سمارى لمواقف السيارات Website
+                زيارة موقع سمارى لمواقف السيارات
             </a>
         </div>
     </section>
@@ -274,33 +318,108 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="samara-logo-group.png" alt="مجموعة سمارى">
-                    <p>Building the future together.</p>
+                    <img src="سمارى-logo-group.png" alt="مجموعة سمارى">
+                    <p>نبني المستقبل معًا.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="../index.html">Home</a>
+                    <h4>روابط سريعة</h4>
+                    <a href="../index.html">الرئيسية</a>
                     <a href="../index.html#about">من نحن</a>
                     <a href="../index.html#companies">الشركات</a>
                     <a href="../index.html#contact">اتصل بنا</a>
                 </div>
                 <div class="footer-companies">
                     <h4>شركاتنا</h4>
-                    <a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a>
-                    <a href="../samara-parking.html">سمارى لمواقف السيارات</a>
-                    <a href="../builmix.html">بيلد ميكس السعودية</a>
-                    <a href="../samara-parking.html">سمارى لمواقف السيارات</a>
+                    <a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a>
+                    <a href="../سمارى-parking.html">سمارى لمواقف السيارات</a>
+                    <a href="../بيلميكس.html">بيلميكس السعودية</a>
+                    <a href="../سمارى-parking.html">سمارى لمواقف السيارات</a>
                     <a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a>
                     <a href="../mahara-recruitment.html">مهارة للتوظيف</a>
-                    <a href="../salmiya-oasis.html">واحة السلمية</a>
+                    <a href="../سالمية-oasis.html">واحة سالمية</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Samara Group. All rights reserved.</p>
+                <p>&copy; 2024 مجموعة سمارى. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
   <script src="script-new.js"></script>
+
+  <script>
+    // Language switching functionality
+    function switchLanguage(lang) {
+      const currentPath = window.location.pathname;
+      const currentHost = window.location.host;
+      const protocol = window.location.protocol;
+      
+      // Get the filename from the path
+      let fileName = currentPath.split('/').pop() || 'index.html';
+      
+      // Handle root path
+      if (currentPath === '/' || currentPath === '') {
+        fileName = 'index.html';
+      }
+      
+      if (lang === 'en') {
+        // Switching to English
+        if (currentPath.includes('/en/')) {
+          // Already in English folder, stay on same page
+          return;
+        }
+        
+        // Remove any leading slash for proper path construction
+        let cleanFileName = fileName.startsWith('/') ? fileName.substring(1) : fileName;
+        
+        // Navigate to English version
+        window.location.href = protocol + '//' + currentHost + '/en/' + cleanFileName;
+      } else {
+        // Switching to Arabic
+        if (!currentPath.includes('/en/')) {
+          // Already in Arabic (root), stay on same page
+          return;
+        }
+        
+        // Remove /en/ prefix to get Arabic version
+        let arabicFileName = fileName;
+        if (currentPath.includes('/en/')) {
+          // Extract just the filename without /en/
+          const parts = currentPath.split('/');
+          arabicFileName = parts[parts.length - 1] || 'index.html';
+        }
+        
+        // Navigate to Arabic version (root)
+        window.location.href = protocol + '//' + currentHost + '/' + arabicFileName;
+      }
+    }
+    
+    // Auto-redirect based on user's language preference when entering root
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const storedLang = localStorage.getItem('preferredLanguage');
+      
+      // Only auto-redirect on root index page if no language is stored
+      if ((currentPath === '/' || currentPath === '' || currentPath === '/index.html') && !storedLang) {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('ar')) {
+          // User prefers Arabic, stay on root
+          localStorage.setItem('preferredLanguage', 'ar');
+        } else if (userLang && userLang.startsWith('en')) {
+          // User prefers English, redirect to /en/
+          localStorage.setItem('preferredLanguage', 'en');
+          window.location.href = '/en/';
+        }
+      }
+      
+      // Store current language preference
+      if (currentPath.includes('/en/')) {
+        localStorage.setItem('preferredLanguage', 'en');
+      } else {
+        localStorage.setItem('preferredLanguage', 'ar');
+      }
+    });
+  </script>
+
 </body>
 </html>

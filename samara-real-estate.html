@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سمارى للعقارات | مجموعة سمارى</title>
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://samara.co.com/samara-real-estate.html" />
+  <link rel="canonical" href="https://سمارى.co.com/سمارى-real-estate.html" />
   
   <!-- Alternate Language Versions -->
-  <link rel="alternate" hreflang="ar" href="https://samara.co.com/samara-real-estate.html" />
-  <link rel="alternate" hreflang="en" href="https://samara.co.com/en/samara-real-estate.html" />
-  <link rel="alternate" hreflang="x-default" href="https://samara.co.com/samara-real-estate.html" />
+  <link rel="alternate" hreflang="ar" href="https://سمارى.co.com/سمارى-real-estate.html" />
+  <link rel="alternate" hreflang="en" href="https://سمارى.co.com/en/سمارى-real-estate.html" />
+  <link rel="alternate" hreflang="x-default" href="https://سمارى.co.com/سمارى-real-estate.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,31 +23,75 @@
     
     <link rel="stylesheet" href="../style-new.css">
     
+
+  <style>
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    .lang-switcher:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .navbar.scrolled .lang-switcher {
+      border-color: rgba(29, 79, 145, 0.3);
+    }
+    
+    .navbar.scrolled .lang-switcher:hover {
+      background: rgba(29, 79, 145, 0.1);
+      border-color: rgba(29, 79, 145, 0.5);
+    }
+    
+    @media (max-width: 768px) {
+      .lang-switcher {
+        margin: 10px 20px;
+      }
+    }
+  </style>
+
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
-                <img src="samara-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
+                <img src="سمارى-logo-group.png" alt="مجموعة سمارى" class="nav-logo-img">
             </a>
             <ul class="nav-menu">
                 <li><a href="../index.html#about" class="nav-link">من نحن</a></li>
                 <li class="nav-dropdown">
                     <a href="#" class="nav-link dropdown-toggle">الشركات <span class="dropdown-arrow">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a></li>
-                        <li><a href="../samara-parking.html">سمارى لمواقف السيارات</a></li>
-                        <li><a href="../builmix.html">بيلد ميكس السعودية</a></li>
-                        <li><a href="../samara-real-estate.html">Samara العقارات</a></li>
+                        <li><a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a></li>
+                        <li><a href="../سمارى-parking.html">سمارى لمواقف السيارات</a></li>
+                        <li><a href="../بيلميكس.html">بيلميكس السعودية</a></li>
+                        <li><a href="../سمارى-real-estate.html">سمارى العقارات</a></li>
                         <li><a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a></li>
                         <li><a href="../mahara-recruitment.html">مهارة للتوظيف</a></li>
-                        <li><a href="../salmiya-oasis.html">واحة السلمية</a></li>
+                        <li><a href="../سالمية-oasis.html">واحة سالمية</a></li>
                     </ul>
                 </li>
                 <li><a href="../index.html#contact" class="nav-link">اتصل بنا</a></li>
             </ul>
-            <button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
+            
+      <!-- Language Switcher -->
+      <button class="lang-switcher" id="lang-switcher" aria-label="التبديل إلى الإنجليزية" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>EN</span>
+      </button>
+<button class="nav-toggle" id="mobile-menu-btn" aria-label="Open menu">
                 <span class="hamburger"></span>
             </button>
         </div>
@@ -60,13 +104,13 @@
         <div class="mobile-dropdown">
             <a href="#" class="mobile-nav mobile-dropdown-toggle">الشركات <span class="dropdown-arrow">▼</span></a>
             <div class="mobile-dropdown-content">
-                <a href="../samara-H-VACR.html" class="mobile-subnav">سمارى للتكييف والتهوية والتبريد</a>
-                <a href="../samara-parking.html" class="mobile-subnav">سمارى لمواقف السيارات</a>
-                <a href="../builmix.html" class="mobile-subnav">بيلد ميكس السعودية</a>
-                <a href="../samara-real-estate.html" class="mobile-subnav">Samara العقارات</a>
+                <a href="../سمارى-تبريد و تكييف.html" class="mobile-subnav">سمارى للتكييف والتهوية والتبريد</a>
+                <a href="../سمارى-parking.html" class="mobile-subnav">سمارى لمواقف السيارات</a>
+                <a href="../بيلميكس.html" class="mobile-subnav">بيلميكس السعودية</a>
+                <a href="../سمارى-real-estate.html" class="mobile-subnav">سمارى العقارات</a>
                 <a href="../saryryah-healthcare.html" class="mobile-subnav">سريرية للرعاية الصحية</a>
                 <a href="../mahara-recruitment.html" class="mobile-subnav">مهارة للتوظيف</a>
-                <a href="../salmiya-oasis.html" class="mobile-subnav">واحة السلمية</a>
+                <a href="../سالمية-oasis.html" class="mobile-subnav">واحة سالمية</a>
             </div>
         </div>
         <a href="../index.html#contact" class="mobile-nav">اتصل بنا</a>
@@ -75,20 +119,20 @@
     <!-- HERO SECTION -->
     <section class="hero company-hero">
         <div class="company-hero-bg">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Samara العقارات Building">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="سمارى العقارات Building">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
             <div class="hero-badge animate-fade-up"><span>شركة من مجموعة سمارى</span></div>
-            <h1 class="hero-title animate-fade-up">Samara العقارات & Contracting</h1>
-            <p class="hero-subtitle animate-fade-up">Premium real estate development and construction services across Saudi Arabia.</p>
+            <h1 class="hero-title animate-fade-up">سمارى العقارات & Contracting</h1>
+            <p class="hero-subtitle animate-fade-up">تطوير العقارات الفاخرة وخدمات البناء عبر المملكة العربية السعودية.</p>
             <div class="hero-metrics animate-fade-up">
                 <div class="hero-metric"><h3><span class="counter" data-target="25">0</span>+</h3><p>سنة Experience</p></div>
                 <div class="hero-metric"><h3><span class="counter" data-target="50">0</span>+</h3><p>المشاريع Delivered</p></div>
-                <div class="hero-metric"><h3><span class="counter" data-target="2">0</span>B+</h3><p>SAR Project Value</p></div>
+                <div class="hero-metric"><h3><span class="counter" data-target="2">0</span>B+</h3><p>قيمة المشاريع بالريال</p></div>
             </div>
             <div class="hero-buttons animate-fade-up">
-                <a href="#about" class="btn btn-primary">Our Services</a>
+                <a href="#about" class="btn btn-primary">خدماتنا</a>
                 <a href="#contact" class="btn btn-outline">اتصل بنا Us</a>
             </div>
         </div>
@@ -99,16 +143,16 @@
         <div class="container">
             <div class="section-grid">
                 <div class="section-image animate-fade-up">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Samara العقارات Building">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="سمارى العقارات Building">
                 </div>
                 <div class="section-content animate-fade-up">
-                    <h2 class="section-title">من نحن Samara العقارات</h2>
-                    <p class="section-text">Samara العقارات & Contracting is a premier developer and contractor within the Samara Group, specializing in residential, commercial, and mixed-use projects across the Kingdom of Saudi Arabia. With over 25 years of industry expertise, we deliver exceptional spaces that enhance communities and provide lasting value to investors and occupants alike.</p>
-                    <p class="section-text">Our comprehensive approach covers every phase of the real estate lifecycle—from initial land acquisition and feasibility studies to design, construction, and property management. We leverage deep market knowledge and strategic partnerships to navigate complex developments efficiently, ensuring on-time delivery and superior quality standards.</p>
+                    <h2 class="section-title">من نحن سمارى العقارات</h2>
+                    <p class="section-text">سمارى العقارات & Contracting هي مطور ومقاول رائد ضمن مجموعة سمارى، متخصص في المشاريع السكنية والتجارية والاستخدامات المختلطة عبر المملكة العربية السعودية. مع أكثر من 25 عامًا من الخبرة الصناعية، نقدم مساحات استثنائية تعزز المجتمعات وتوفر قيمة دائمة للمستثمرين والمقيمين على حد سواء.</p>
+                    <p class="section-text">نهجنا الشامل يغطي كل مرحلة من دورة حياة العقار - من الاستحواذ الأولي على الأرض ودراسات الجدوى إلى التصميم والبناء وإدارة الممتلكات. نستخدم المعرفة العميقة بالسوق والشراكات الاستراتيجية للتنقل في التطورات المعقدة بكفاءة، مما يضمن التسليم في الوقت المحدد ومعايير الجودة المتفوقة.</p>
                     <div class="stats-grid">
-                        <div class="stat-item"><h3 class="counter" data-target="25">0</h3><p>سنة Experience</p></div>
-                        <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>المشاريع Completed</p></div>
-                        <div class="stat-item"><h3 class="counter" data-target="100">0</h3><p>% On-Time Delivery</p></div>
+                        <div class="stat-item"><h3 class="counter" data-target="25">0</h3><p>سنة خبرة</p></div>
+                        <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>مشروع مكتمل</p></div>
+                        <div class="stat-item"><h3 class="counter" data-target="100">0</h3><p>% التسليم في الوقت المحدد</p></div>
                     </div>
                 </div>
             </div>
@@ -119,39 +163,39 @@
     <section class="section section-dark">
         <div class="container">
             <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive real estate and construction solutions</p>
+                <h2 class="section-title">خدماتنا</h2>
+                <p class="section-subtitle">حلول شاملة للعقارات والبناء</p>
             </div>
             <div class="services-grid">
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="building"></i></div>
-                    <h3>العقارات Development</h3>
-                    <p>End-to-end development of residential compounds, office towers, retail centers, and mixed-use communities tailored to market demands.</p>
+                    <h3>تطوير العقارات</h3>
+                    <p>تطوير شامل للمجمعات السكنية وأبراج المكاتب ومراكز التسوق والمجتمعات متعددة الاستخدامات المصممة وفقًا لمتطلبات السوق.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="hammer"></i></div>
-                    <h3>General Contracting</h3>
-                    <p>Full-service construction management with rigorous focus on quality control, safety protocols, and adherence to project timelines.</p>
+                    <h3>المقاولات العامة</h3>
+                    <p>إدارة بناء كاملة الخدمات مع تركيز صارم على مراقبة الجودة وبروتوكولات السلامة والالتزام بجداول المشروع.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="clipboard-list"></i></div>
-                    <h3>Project Management</h3>
-                    <p>Professional oversight from conception to handover, coordinating stakeholders, budgets, and resources for optimal outcomes.</p>
+                    <h3>إدارة المشاريع</h3>
+                    <p>إشراف احترافي من التصور حتى التسليم، وتنسيق أصحاب المصلحة والميزانيات والموارد لتحقيق النتائج المثلى.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="hard-hat"></i></div>
-                    <h3>Infrastructure Development</h3>
-                    <p>Design and execution of essential infrastructure including roads, utilities, and site preparation for large-scale developments.</p>
+                    <h3>تطوير البنية التحتية</h3>
+                    <p>تنفيذ وتصميم البنية التحتية الأساسية بما في ذلك الطرق والمرافق وإعداد المواقع للتطورات واسعة النطاق.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="paintbrush"></i></div>
-                    <h3>Fit-Out & Interiors</h3>
-                    <p>Custom interior fit-out services for commercial offices, retail spaces, and hospitality venues with premium finishes.</p>
+                    <h3>التجهيز والديكور الداخلي</h3>
+                    <p>خدمات تجهيز داخلي مخصصة للمكاتب التجارية ومساحات التجزئة وأماكن الضيافة مع تشطيبات فاخرة.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon"><i data-lucide="wrench"></i></div>
-                    <h3>Facility Maintenance</h3>
-                    <p>Ongoing maintenance and facility management services to preserve asset value and ensure operational efficiency.</p>
+                    <h3>صيانة المرافق</h3>
+                    <p>خدمات صيانة مستمرة وإدارة المرافق للحفاظ على قيمة الأصول وضمان الكفاءة التشغيلية.</p>
                 </div>
             </div>
         </div>
@@ -161,29 +205,29 @@
     <section class="section section-light">
         <div class="container">
             <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">Delivering value through numbers</p>
+                <h2 class="section-title">أثرنا</h2>
+                <p class="section-subtitle">تقديم القيمة من خلال الأرقام</p>
             </div>
             <div class="metrics-grid">
                 <div class="metric-card animate-fade-up">
                     <div class="metric-icon"><i data-lucide="calendar"></i></div>
                     <h3 class="counter" data-target="25">0</h3>
-                    <p>سنة of Excellence</p>
+                    <p>سنة من التميز</p>
                 </div>
                 <div class="metric-card animate-fade-up">
                     <div class="metric-icon"><i data-lucide="briefcase"></i></div>
                     <h3 class="counter" data-target="50">0</h3>
-                    <p>المشاريع Delivered</p>
+                    <p>مشروع تم تسليمها</p>
                 </div>
                 <div class="metric-card animate-fade-up">
                     <div class="metric-icon"><i data-lucide="dollar-sign"></i></div>
                     <h3 class="counter" data-target="2">0</h3>
-                    <p>Billion SAR Value</p>
+                    <p>مليار ريال قيمة</p>
                 </div>
                 <div class="metric-card animate-fade-up">
                     <div class="metric-icon"><i data-lucide="check-circle"></i></div>
                     <h3 class="counter" data-target="100">0</h3>
-                    <p>% Client Satisfaction</p>
+                    <p>% رضا العملاء</p>
                 </div>
             </div>
         </div>
@@ -228,28 +272,28 @@
         <div class="container">
             <div class="section-header animate-fade-up">
                 <h2 class="section-title">اتصل بنا Us</h2>
-                <p class="section-subtitle">Get in touch with our team</p>
+                <p class="section-subtitle">تواصل مع فريقنا</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="map-pin"></i></div>
                     <div class="contact-info">
-                        <h4>Office Address</h4>
-                        <p>Samara العقارات<br>Saudi Arabia</p>
+                        <h4>عنوان المكتب</h4>
+                        <p>سمارى العقارات<br>المملكة العربية السعودية</p>
                     </div>
                 </div>
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="phone"></i></div>
                     <div class="contact-info">
-                        <h4>Call Us</h4>
+                        <h4>اتصل بنا</h4>
                         <p>+966 13 3301222</p>
                     </div>
                 </div>
                 <div class="contact-item animate-fade-up">
                     <div class="contact-icon"><i data-lucide="mail"></i></div>
                     <div class="contact-info">
-                        <h4>Email Us</h4>
-                        <p>info@samaragroup.com.sa</p>
+                        <h4>راسلنا عبر البريد</h4>
+                        <p>info@سمارىgroup.com.sa</p>
                     </div>
                 </div>
             </div>
@@ -259,12 +303,12 @@
     <!-- Website Link Section -->
     <section class="company-section" style="text-align: center;">
         <div class="container">
-            <span class="section-label">Visit Our Website</span>
-            <h2 class="section-title">Explore More</h2>
+            <span class="section-label">زر موقعنا الإلكتروني</span>
+            <h2 class="section-title">استكشف المزيد</h2>
             <div class="section-line"></div>
-            <a href="https://samaragroup.com.sa/samara-real-estate-and-contracting/" target="_blank" rel="noopener noreferrer" class="website-btn">
+            <a href="https://سمارىgroup.com.sa/سمارى-real-estate-and-contracting/" target="_blank" rel="noopener noreferrer" class="website-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Visit Samara العقارات Website
+                زيارة موقع سمارى العقارات
             </a>
         </div>
     </section>
@@ -274,33 +318,108 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="samara-logo-group.png" alt="مجموعة سمارى">
+                    <img src="سمارى-logo-group.png" alt="مجموعة سمارى">
                     <p>Building the future together.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="../index.html">Home</a>
+                    <h4>روابط سريعة</h4>
+                    <a href="../index.html">الرئيسية</a>
                     <a href="../index.html#about">من نحن</a>
                     <a href="../index.html#companies">الشركات</a>
                     <a href="../index.html#contact">اتصل بنا</a>
                 </div>
                 <div class="footer-companies">
                     <h4>شركاتنا</h4>
-                    <a href="../samara-H-VACR.html">سمارى للتكييف والتهوية والتبريد</a>
-                    <a href="../samara-parking.html">سمارى لمواقف السيارات</a>
-                    <a href="../builmix.html">بيلد ميكس السعودية</a>
-                    <a href="../samara-real-estate.html">Samara العقارات</a>
+                    <a href="../سمارى-تبريد و تكييف.html">سمارى للتكييف والتهوية والتبريد</a>
+                    <a href="../سمارى-parking.html">سمارى لمواقف السيارات</a>
+                    <a href="../بيلميكس.html">بيلميكس السعودية</a>
+                    <a href="../سمارى-real-estate.html">سمارى العقارات</a>
                     <a href="../saryryah-healthcare.html">سريرية للرعاية الصحية</a>
                     <a href="../mahara-recruitment.html">مهارة للتوظيف</a>
-                    <a href="../salmiya-oasis.html">واحة السلمية</a>
+                    <a href="../سالمية-oasis.html">واحة سالمية</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Samara Group. All rights reserved.</p>
+                <p>&copy; 2024 سمارى Group. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
   <script src="script-new.js"></script>
+
+  <script>
+    // Language switching functionality
+    function switchLanguage(lang) {
+      const currentPath = window.location.pathname;
+      const currentHost = window.location.host;
+      const protocol = window.location.protocol;
+      
+      // Get the filename from the path
+      let fileName = currentPath.split('/').pop() || 'index.html';
+      
+      // Handle root path
+      if (currentPath === '/' || currentPath === '') {
+        fileName = 'index.html';
+      }
+      
+      if (lang === 'en') {
+        // Switching to English
+        if (currentPath.includes('/en/')) {
+          // Already in English folder, stay on same page
+          return;
+        }
+        
+        // Remove any leading slash for proper path construction
+        let cleanFileName = fileName.startsWith('/') ? fileName.substring(1) : fileName;
+        
+        // Navigate to English version
+        window.location.href = protocol + '//' + currentHost + '/en/' + cleanFileName;
+      } else {
+        // Switching to Arabic
+        if (!currentPath.includes('/en/')) {
+          // Already in Arabic (root), stay on same page
+          return;
+        }
+        
+        // Remove /en/ prefix to get Arabic version
+        let arabicFileName = fileName;
+        if (currentPath.includes('/en/')) {
+          // Extract just the filename without /en/
+          const parts = currentPath.split('/');
+          arabicFileName = parts[parts.length - 1] || 'index.html';
+        }
+        
+        // Navigate to Arabic version (root)
+        window.location.href = protocol + '//' + currentHost + '/' + arabicFileName;
+      }
+    }
+    
+    // Auto-redirect based on user's language preference when entering root
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const storedLang = localStorage.getItem('preferredLanguage');
+      
+      // Only auto-redirect on root index page if no language is stored
+      if ((currentPath === '/' || currentPath === '' || currentPath === '/index.html') && !storedLang) {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('ar')) {
+          // User prefers Arabic, stay on root
+          localStorage.setItem('preferredLanguage', 'ar');
+        } else if (userLang && userLang.startsWith('en')) {
+          // User prefers English, redirect to /en/
+          localStorage.setItem('preferredLanguage', 'en');
+          window.location.href = '/en/';
+        }
+      }
+      
+      // Store current language preference
+      if (currentPath.includes('/en/')) {
+        localStorage.setItem('preferredLanguage', 'en');
+      } else {
+        localStorage.setItem('preferredLanguage', 'ar');
+      }
+    });
+  </script>
+
 </body>
 </html>
